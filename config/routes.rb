@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :vacations do
+    resources :photos
+  end
   resources :users
   resources :vacations do
     resources :guests

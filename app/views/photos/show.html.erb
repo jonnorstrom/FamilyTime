@@ -1,24 +1,20 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <b>Name:</b>
   <%= @photo.name %>
 </p>
 
 <p>
-  <strong>User:</strong>
+  <b>Descrioption:</b>
+  <%= @photo.descrioption %>
+</p>
+
+<p>
+  <b>User:</b>
   <%= @photo.user_id %>
 </p>
 
-<p>
-  <strong>Vacation:</strong>
-  <%= @photo.vacation_id %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @photo.description %>
-</p>
-
-<%= link_to 'Edit', edit_photo_path(@photo) %> |
-<%= link_to 'Back', photos_path %>
+<%= link_to 'Edit', edit_vacation_photo_path(@photo.vacation, @photo) %> |
+<%= link_to 'Back', vacation_photos_path(@photo.vacation) %>
