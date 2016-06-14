@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Description:</b>
+  <%= @topic.description %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @topic.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_vacation_topic_path(@topic.vacation, @topic) %> |
+<%= link_to 'Back', vacation_topics_path(@topic.vacation) %>

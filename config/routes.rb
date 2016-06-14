@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :vacations
+  resources :vacations do
+    resources :topics
+  end
+  resources :vacations do
+    resources :attractions
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
