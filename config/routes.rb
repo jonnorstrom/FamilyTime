@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   resources :vacations do
+    resources :guests
+  end
+  resources :vacations do
     resources :topics
   end
   resources :vacations do

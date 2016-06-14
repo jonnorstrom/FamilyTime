@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>First name:</b>
+  <%= @guest.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%= @guest.last_name %>
+</p>
+
+
+<%= link_to 'Edit', edit_vacation_guest_path(@guest.vacation, @guest) %> |
+<%= link_to 'Back', vacation_guests_path(@guest.vacation) %>
