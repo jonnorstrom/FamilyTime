@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :topics do
+    resources :comments
+  end
   resources :vacations do
     resources :photos
   end
@@ -7,7 +10,6 @@ Rails.application.routes.draw do
     resources :guests
   end
   resources :vacations do
-    resources :topics
   end
   resources :vacations do
     resources :attractions
