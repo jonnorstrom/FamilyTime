@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @attraction.name %>
+</p>
+
+<p>
+  <b>Weblink:</b>
+  <%= @attraction.weblink %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @attraction.location %>
+</p>
+
+
+<%= link_to 'Edit', edit_vacation_attraction_path(@attraction.vacation, @attraction) %> |
+<%= link_to 'Back', vacation_attractions_path(@attraction.vacation) %>

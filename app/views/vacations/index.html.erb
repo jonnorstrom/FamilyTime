@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Vacations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vacations.each do |vacation| %>
+    <p><%= vacation.name %></p>
+      <tr>
+        <td><%= link_to 'Show', vacation %></td>
+        <td><%= link_to 'Edit', edit_vacation_path(vacation) %></td>
+        <td><%= link_to 'Destroy', vacation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Vacation', new_vacation_path %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vacation_id: 
+  name: MyString
+  descrioption: MyString
+  user_id: 1
+
+two:
+  vacation_id: 
+  name: MyString
+  descrioption: MyString
+  user_id: 1
