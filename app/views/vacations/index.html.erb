@@ -11,6 +11,7 @@
 
   <tbody>
     <% @vacations.each do |vacation| %>
+    <p><%= vacation.name %></p>
       <tr>
         <td><%= link_to 'Show', vacation %></td>
         <td><%= link_to 'Edit', edit_vacation_path(vacation) %></td>

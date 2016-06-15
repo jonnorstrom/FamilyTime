@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
-  resources :topics do
-    resources :comments
-  end
+  root 'vacations#index'
+
   resources :vacations do
     resources :photos
   end
   resources :users
   resources :vacations do
+    resources :topics do
+      resources :comments
+    end
     resources :guests
   end
   resources :vacations do
