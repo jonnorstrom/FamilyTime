@@ -7,11 +7,11 @@ class User < ActiveRecord::Base
   # validates_presence_of :password, :on => :create
 
   def password
-    @password ||= Password.new(password_digest)
+    @password ||= ::BCrypt::Password.new(password_digest)
   end
 
   def password=(new_password)
-    @password = Password.create(new_password)
+    @password = ::BCrypt::Password.create(new_password)
     self.password_digest = @password
   end
 end
