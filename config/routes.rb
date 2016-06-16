@@ -1,21 +1,19 @@
 Rails.application.routes.draw do
-  root 'vacations#index'
+  root 'splash#index'
+  resources :users
 
   resources :vacations do
+    resources :guests
+    resources :attractions
     resources :photos
-  end
-  resources :users
-  resources :vacations do
     resources :topics do
       resources :comments
     end
-    resources :guests
   end
-  resources :vacations do
-  end
-  resources :vacations do
-    resources :attractions
-  end
+
+  get 'sessions/new' => 'sessions#new'
+  get 'sessions/destroy' => 'sessions#destroy'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
