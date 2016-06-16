@@ -1,5 +1,5 @@
 <% if current_user %>
-  <h1>HEY person</h1>
+  <h1>HEY <%= current_user.first_name %></h1>
 <% else %>
   <h1>No one here</h1>
 <% end %>

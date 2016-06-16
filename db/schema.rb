@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 20160616172025) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.boolean  "is_admin"
+    t.string   "email"
   end
 
   create_table "vacations", force: :cascade do |t|
