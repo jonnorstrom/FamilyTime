@@ -17,7 +17,7 @@
     <td><%= attraction.location %></td>
     <td><%= link_to 'Show', [attraction.vacation, attraction] %></td>
     <td><%= link_to 'Edit', edit_vacation_attraction_path(attraction.vacation, attraction) %></td>
-    <td><%= link_to 'Destroy', [attraction.vacation, attraction], :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Remove', [attraction.vacation, attraction], :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
