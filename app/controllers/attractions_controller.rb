@@ -25,7 +25,7 @@ class AttractionsController < ApplicationController
     @attraction = @vacation.attractions.build(attraction_params)
 
     if @attraction.save
-      redirect_to([@attraction.vacation, @attraction], notice: 'Attraction was successfully created.')
+      redirect_to(vacation_attractions_path, notice: 'Attraction was successfully created.')
     else
       render action: 'new'
     end
