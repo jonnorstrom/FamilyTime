@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   def new
     login_user(params)
-    redirect_to root_path
+    redirect_to root_path, notice: @notice
   end
 
   def destroy
