@@ -1,5 +1,2 @@
-<% if current_user %>
-  <h1>HEY <%= current_user.first_name %></h1>
-<% else %>
-  <h1>No one here</h1>
-<% end %>
+<h1>Looks like you should log in!</h1>
+<%= render 'form' %>
