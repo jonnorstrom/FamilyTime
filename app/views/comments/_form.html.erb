@@ -1,4 +1,4 @@
-<%= form_for([@comment.topic, @comment]) do |f| %>
+<%= form_for([current_vacation, current_topic, @comment]) do |f| %>
   <% if @comment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
@@ -15,11 +15,8 @@
     <%= f.label :content %><br />
     <%= f.text_field :content %>
   </div>
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
-  </div>
   <div class="actions">
+    <%= hidden_field_tag 'user_id', current_user.id %>
     <%= f.submit %>
   </div>
 <% end %>

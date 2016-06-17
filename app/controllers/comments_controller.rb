@@ -23,9 +23,10 @@ class CommentsController < ApplicationController
   # POST topics/1/comments
   def create
     @comment = @topic.comments.build(comment_params)
+    @comment.update(user_id: params[:user_id])
 
     if @comment.save
-      redirect_to([@comment.topic, @comment], notice: 'Comment was successfully created.')
+      redirect_to([current_vacation, current_topic], notice: 'Comment was successfully created.')
     else
       render action: 'new'
     end

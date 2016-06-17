@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 
+<%= link_to 'Go Back', vacation_path(@topic.vacation) %>
 <p>
   <b>Name:</b>
   <%= @topic.name %>
@@ -11,4 +12,6 @@
   <%= @topic.description %>
 </p>
 
-<%= link_to 'Go Back', vacation_path(@topic.vacation) %>
+<%= render @topic.comments %>
+
+<%= link_to "Write a Comment", new_vacation_topic_comment_path(@topic.vacation, @topic) %>
