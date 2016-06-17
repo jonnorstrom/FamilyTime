@@ -3,6 +3,15 @@ module ApplicationHelper
     @current_user ||= session[:current_user_id] && User.find_by_id(session[:current_user_id])
   end
 
+  def current_vacation
+    @vacation ||= Vacation.find(params[:vacation_id])
+  end
+
+  def current_topic
+    @topic ||= Topic.find(params[:topic_id])
+  end
+
+
   def logout_user
     session.delete(:current_user_id)
   end
