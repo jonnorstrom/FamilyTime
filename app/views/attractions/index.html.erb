@@ -3,7 +3,6 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Weblink</th>
     <th>Location</th>
     <th></th>
     <th></th>
@@ -12,10 +11,8 @@
 
 <% @attractions.each do |attraction| %>
   <tr>
-    <td><%= attraction.name %></td>
-    <td><%= attraction.weblink %></td>
+    <td><%= link_to attraction.name, url_with_protocol(attraction.weblink), :target => '_blank' %></td>
     <td><%= attraction.location %></td>
-    <td><%= link_to 'Show', [attraction.vacation, attraction] %></td>
     <td><%= link_to 'Edit', edit_vacation_attraction_path(attraction.vacation, attraction) %></td>
     <td><%= link_to 'Remove', [attraction.vacation, attraction], :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
