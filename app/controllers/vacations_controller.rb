@@ -4,6 +4,7 @@ class VacationsController < ApplicationController
   # GET /vacations
   # GET /vacations.json
   def index
+    @user = current_user
     @vacations = Vacation.all
   end
 

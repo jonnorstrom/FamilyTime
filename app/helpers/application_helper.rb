@@ -8,7 +8,12 @@ module ApplicationHelper
   end
 
   def login_user(params)
-    id = User.find_by(email: params[:email]).id
-    session[:current_user_id] = id
+    user = User.find_by(email: params[:email])
+    if user.authenticate(params[:password])
+      session[:current_user_id] = user.id
+      @notice = "Logged in Successfully"
+    else
+      @notice = "Wrong Email or Password"
+    end
   end
 end
