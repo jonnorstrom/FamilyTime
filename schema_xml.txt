@@ -52,7 +52,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="685" y="387" name="users">
+<table x="907" y="207" name="users">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -65,22 +65,6 @@
 <row name="email" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<key type="PRIMARY" name="">
-<part>id</part>
-</key>
-</table>
-<table x="40" y="360" name="invitations">
-<row name="id" null="1" autoincrement="1">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="vacation_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="vacations" row="id" />
-</row>
-<row name="user_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="users" row="id" />
-</row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
@@ -124,7 +108,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="822" y="71" name="comment">
+<table x="691" y="63" name="comment">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
