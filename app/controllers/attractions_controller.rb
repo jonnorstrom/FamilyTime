@@ -34,7 +34,7 @@ class AttractionsController < ApplicationController
   # PUT vacations/1/attractions/1
   def update
     if @attraction.update_attributes(attraction_params)
-      redirect_to([@attraction.vacation, @attraction], notice: 'Attraction was successfully updated.')
+      redirect_to(vacation_attractions_path, notice: 'Attraction was successfully updated.')
     else
       render action: 'edit'
     end
