@@ -8,7 +8,7 @@
   </head>
   <body>
     <% if current_user %>
-      <p>Welcome <%= current_user.first_name %> | <%= link_to "Logout", sessions_destroy_path %> | <%= link_to "Change Password", edit_user_path(@user) %></p>
+      <p>Welcome <%= current_user.first_name %> | <%= link_to "Logout", sessions_destroy_path %> | <%= link_to "Change Password", edit_user_path(current_user) %> | <%= link_to "Home", root_path %></p>
     <% end %>
     <%= yield %>
   </body>

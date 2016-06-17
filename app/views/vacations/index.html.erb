@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Vacations</h1>
+<h3>All Your Vacations</h3>
+<%= link_to 'Start a New Vacation', new_vacation_path %>
 
 <table>
   <thead>
@@ -11,16 +12,11 @@
 
   <tbody>
     <% @vacations.each do |vacation| %>
-    <p><%= vacation.name %></p>
-      <tr>
-        <td><%= link_to 'Show', vacation %></td>
+    <p> - <%= link_to vacation.name, vacation %></p>
+      <!-- <tr>
         <td><%= link_to 'Edit', edit_vacation_path(vacation) %></td>
         <td><%= link_to 'Destroy', vacation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      </tr> -->
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Vacation', new_vacation_path %>
