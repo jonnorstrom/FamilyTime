@@ -5,3 +5,5 @@
 <% @vacation.topics.each do |topic| %>
   <%= link_to topic.name, vacation_topic_path(@vacation, topic) %>
 <% end %>
+
+<p><%= link_to 'Guest List', vacation_guests_path(@vacation) %> </p>

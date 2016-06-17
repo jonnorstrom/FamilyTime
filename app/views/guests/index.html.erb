@@ -13,9 +13,7 @@
   <tr>
     <td><%= guest.first_name %></td>
     <td><%= guest.last_name %></td>
-    <td><%= link_to 'Show', [guest.vacation, guest] %></td>
-    <td><%= link_to 'Edit', edit_vacation_guest_path(guest.vacation, guest) %></td>
-    <td><%= link_to 'Destroy', [guest.vacation, guest], :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Remove Guest', [guest.vacation, guest], :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
