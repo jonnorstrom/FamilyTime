@@ -33,7 +33,9 @@ class AttractionsController < ApplicationController
 
   # PUT vacations/1/attractions/1
   def update
-    if @attraction.update_attributes(attraction_params)
+    if !@attraction
+      redirect_to vacation_attractions_path
+    elsif @attraction.update_attributes(attraction_params)
       redirect_to(vacation_attractions_path, notice: 'Attraction was successfully updated.')
     else
       render action: 'edit'
@@ -54,7 +56,11 @@ class AttractionsController < ApplicationController
     end
 
     def set_attraction
-      @attraction = @vacation.attractions.find(params[:id])
+      if Attraction.find_by(id: params[:id])
+        @attraction = @vacation.attractions.find(params[:id])
+      else
+        return nil
+      end
     end
 
     # Only allow a trusted parameter "white list" through.
