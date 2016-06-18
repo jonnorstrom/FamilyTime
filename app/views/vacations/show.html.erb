@@ -8,3 +8,8 @@
 
 <p><%= link_to 'Guest List', vacation_guests_path(@vacation) %> </p>
 <p><%= link_to 'Attractions', vacation_attractions_path(@vacation) %></p>
+
+<% if form_is_closed %>
+  <h3>When is the Vacation?</h3>
+  <%= render 'start_end_vacation' %>
+<% end %>
