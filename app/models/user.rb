@@ -22,4 +22,8 @@ class User < ActiveRecord::Base
     self.update(password_digest: ::BCrypt::Password.create(password))
     self.save
   end
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end

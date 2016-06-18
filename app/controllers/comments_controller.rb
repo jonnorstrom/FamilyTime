@@ -45,7 +45,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment.destroy
 
-    redirect_to topic_comments_url(@topic)
+    redirect_to vacation_topic_path(current_vacation, current_topic)
   end
 
   private
