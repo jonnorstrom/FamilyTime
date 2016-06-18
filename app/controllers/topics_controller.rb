@@ -9,6 +9,7 @@ class TopicsController < ApplicationController
 
   # GET vacations/1/topics/1
   def show
+    @comment = Comment.new
   end
 
   # GET vacations/1/topics/new

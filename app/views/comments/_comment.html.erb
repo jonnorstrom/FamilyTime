@@ -1,3 +1,10 @@
-<h4><%= User.find(comment.user_id).first_name %></h4>
+<h4><%= User.find(comment.user_id).full_name %></h4>
 <p><%= comment.content %></p>
-</br>
+
+<% if comment.user_id == current_user.id %>
+<%= link_to 'Edit', edit_vacation_topic_comment_path(current_vacation, current_topic, comment) %>
+<% end %>
+<% if current_user.is_admin && User.find(comment.user_id).is_admin %>
+<%= link_to 'Destroy', [current_vacation, current_topic, comment], :confirm => 'Are you sure?', :method => :delete %>
+<% end %>
+<%= link_to 'Back', vacation_path(current_vacation) %>
