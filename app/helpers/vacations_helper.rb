@@ -9,6 +9,10 @@ module VacationsHelper
     !@vacation.topics.where("name = 'Where/When'")[0].is_open
   end
 
+  def meal_form?
+    Topic.find(params[:id]).name == 'Food/Meals'
+  end
+
   private
 
   def make_new(vacation, name, description)

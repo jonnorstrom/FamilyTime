@@ -16,3 +16,7 @@
 
 <h2>Write a Comment</h2>
 <%= render 'comments/form' %>
+
+<% if meal_form? %>
+  <%= render 'meals/calendar' %>
+<% end %>
