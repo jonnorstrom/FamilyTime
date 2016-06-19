@@ -5,6 +5,12 @@ module VacationsHelper
     make_new(vacation, "Rooming", "Where figuring out rooming arrangements can happen")
   end
 
+  def make_vacation_meals(vacation)
+    unless !vacation.start || !vacation.end
+      length = (vacation.end - vacation.start).to_i 
+    end
+  end
+
   def form_is_closed
     !@vacation.topics.where("name = 'Where/When'")[0].is_open
   end
