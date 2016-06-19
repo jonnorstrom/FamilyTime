@@ -5,10 +5,14 @@
 <% @vacation.topics.each do |topic| %>
   <%= link_to topic.name, vacation_topic_path(@vacation, topic) %>
 <% end %>
-
+</br>
+</br>
 <p><%= link_to 'Guest List', vacation_guests_path(@vacation) %> </p>
+<%= render @vacation.guests %>
+</br>
 <p><%= link_to 'Attractions', vacation_attractions_path(@vacation) %></p>
-
+<%= render @vacation.attractions %>
+</br>
 <% if form_is_closed %>
   <h3>When is the Vacation?</h3>
   <%= render 'start_end_vacation' %>
