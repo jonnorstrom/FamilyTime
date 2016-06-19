@@ -10,6 +10,7 @@ class TopicsController < ApplicationController
   def show
     ## because new comment form is on this page
     @comment = Comment.new
+    @meal = Meal.new
   end
 
   # GET vacations/1/topics/new
