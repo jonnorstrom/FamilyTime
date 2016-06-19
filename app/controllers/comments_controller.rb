@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_comments
+  before_action :set_topic
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
 
   # GET topics/1/comments
@@ -50,7 +50,7 @@ class CommentsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_comments
+    def set_topic
       @topic = Topic.find(params[:topic_id])
     end
 

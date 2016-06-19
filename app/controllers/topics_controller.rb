@@ -1,5 +1,4 @@
 class TopicsController < ApplicationController
-  before_action :set_topics
   before_action :set_topic, only: [:show, :edit, :update, :destroy]
 
   # GET vacations/1/topics
@@ -9,6 +8,7 @@ class TopicsController < ApplicationController
 
   # GET vacations/1/topics/1
   def show
+    ## because new comment form is on this page
     @comment = Comment.new
   end
 
@@ -50,9 +50,6 @@ class TopicsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_topics
-      @vacation = Vacation.find(params[:vacation_id])
-    end
 
     def set_topic
       @topic = @vacation.topics.find(params[:id])
