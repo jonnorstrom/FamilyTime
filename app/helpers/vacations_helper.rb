@@ -5,8 +5,8 @@ module VacationsHelper
     make_new(vacation, "Rooming", "Where figuring out rooming arrangements can happen")
   end
 
-  def form_is_closed
-    !@vacation.topics.where("name = 'Where/When'")[0].is_open
+  def form_is_closed(name)
+    !@vacation.topics.where(name: name)[0].is_open
   end
 
   def meal_form?
