@@ -1,5 +1,4 @@
 class VacationsController < ApplicationController
-  include VacationsHelper
   before_action :set_vacation, only: [:show, :edit, :update, :destroy]
 
   # GET /vacations
