@@ -7,12 +7,12 @@ module VacationsHelper
 
   def make_vacation_meals(vacation)
     unless !vacation.start || !vacation.end
-      length = (vacation.end - vacation.start).to_i 
+      length = (vacation.end - vacation.start).to_i
     end
   end
 
-  def form_is_closed
-    !@vacation.topics.where("name = 'Where/When'")[0].is_open
+  def form_is_closed(name)
+    !@vacation.topics.where(name: name)[0].is_open
   end
 
   def meal_form?
