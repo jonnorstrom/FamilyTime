@@ -13,7 +13,7 @@
 <p><%= link_to 'Attractions', vacation_attractions_path(@vacation) %></p>
 <%= render @vacation.attractions %>
 </br>
-<% if form_is_closed %>
+<% if form_is_closed("Where/When") %>
   <h3>When is the Vacation?</h3>
   <%= render 'start_end_vacation' %>
 <% end %>
