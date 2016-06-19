@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   # protect_from_forgery with: :exception
   protect_from_forgery with: :exception
   before_action :require_login
+  before_action :set_vacation
 
   private
 
@@ -15,5 +16,9 @@ class ApplicationController < ActionController::Base
       flash[:error] = "You must be logged in to access that section"
       redirect_to root_path # halts request cycle
     end
+  end
+
+  def set_vacation
+    @vacation = Vacation.find(params[:vacation_id])
   end
 end

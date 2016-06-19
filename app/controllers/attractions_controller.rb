@@ -1,5 +1,4 @@
 class AttractionsController < ApplicationController
-  before_action :set_attractions
   before_action :set_attraction, only: [:show, :edit, :update, :destroy]
 
   # GET vacations/1/attractions
@@ -51,10 +50,6 @@ class AttractionsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_attractions
-      @vacation = Vacation.find(params[:vacation_id])
-    end
-
     def set_attraction
       if Attraction.find_by(id: params[:id])
         @attraction = @vacation.attractions.find(params[:id])

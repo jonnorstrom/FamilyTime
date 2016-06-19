@@ -1,5 +1,4 @@
 class PhotosController < ApplicationController
-  before_action :set_photos
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
 
   # GET vacations/1/photos
@@ -49,9 +48,6 @@ class PhotosController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_photos
-      @vacation = Vacation.find(params[:vacation_id])
-    end
 
     def set_photo
       @photo = @vacation.photos.find(params[:id])

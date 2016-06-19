@@ -1,5 +1,4 @@
 class GuestsController < ApplicationController
-  before_action :set_guests
   before_action :set_guest, only: [:show, :edit, :update, :destroy]
 
   # GET vacations/1/guests
@@ -49,10 +48,6 @@ class GuestsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_guests
-      @vacation = Vacation.find(params[:vacation_id])
-    end
-
     def set_guest
       @guest = @vacation.guests.find(params[:id])
     end
