@@ -1,7 +1,6 @@
-class TopicsController < ApplicationController
+class MealsController < ApplicationController
   before_action :set_topic, only: [:show, :edit, :update, :destroy]
 
-  # POST vacations/1/topics
   def create
     @meal = @vacation.build(meal_params)
     @meal.update(user_id: params[:user_id])
@@ -18,6 +17,4 @@ class TopicsController < ApplicationController
     def meal_params
       params.require(:meal).permit(:day, :user_id)
     end
-
-
 end
