@@ -29,7 +29,7 @@ class VacationsControllerTest < ActionController::TestCase
   end
 
   test "should show vacation" do
-    make_vacation_topics(@vacation)
+    @vacation.make_vacation_topics
     get(:show, {id: @vacation}, {:current_user_id => @user.id})
     assert_response :success
   end
