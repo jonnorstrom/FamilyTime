@@ -7,7 +7,9 @@ module VacationsHelper
 
   def make_vacation_meals(vacation)
     unless !vacation.start || !vacation.end
-      length = (vacation.end - vacation.start).to_i
+      if vacation.meals.empty?
+        set_meal_dates(vacation)
+      end
     end
   end
 
@@ -23,5 +25,14 @@ module VacationsHelper
 
   def make_new(vacation, name, description)
     vacation.topics.create(name: name, description: description)
+  end
+
+  def set_meal_dates(vacation)
+    length = ((vacation.end - vacation.start).to_i) + 1
+    counter = 0
+    length.times do
+      vacation.meals.create(day: vacation.start+(counter))
+      counter +=1
+    end
   end
 end

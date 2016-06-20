@@ -1,6 +1,5 @@
 <p id="notice"><%= notice %></p>
 <h1><%= @vacation.name %></h1>
-<p><%= link_to 'Change Name', edit_vacation_path(@vacation) %></p>
 
 <% @vacation.topics.each do |topic| %>
   <%= link_to topic.name, vacation_topic_path(@vacation, topic) %>
