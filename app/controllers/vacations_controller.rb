@@ -29,7 +29,6 @@ class VacationsController < ApplicationController
 
     respond_to do |format|
       if @vacation.save
-        make_vacation_topics(@vacation) ## helper to make the topics
         format.html { redirect_to @vacation, notice: 'Vacation was successfully created.' }
         format.json { render :show, status: :created, location: @vacation }
       else
@@ -44,7 +43,6 @@ class VacationsController < ApplicationController
   def update
     respond_to do |format|
       if @vacation.update(vacation_params)
-        make_vacation_meals(@vacation)
         format.html { redirect_to @vacation, notice: 'Vacation was successfully updated.' }
         format.json { render :show, status: :ok, location: @vacation }
       else
