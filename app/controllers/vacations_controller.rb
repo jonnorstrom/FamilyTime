@@ -44,6 +44,7 @@ class VacationsController < ApplicationController
   def update
     respond_to do |format|
       if @vacation.update(vacation_params)
+        make_vacation_meals(@vacation)
         format.html { redirect_to @vacation, notice: 'Vacation was successfully updated.' }
         format.json { render :show, status: :ok, location: @vacation }
       else
