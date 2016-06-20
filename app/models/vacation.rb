@@ -6,4 +6,6 @@ class Vacation < ActiveRecord::Base
   has_many :attractions
   has_many :invitations
   has_many :users, through: :invitations
+
+  after_save :make_vacation_topics
 end
