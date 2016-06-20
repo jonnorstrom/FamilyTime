@@ -35,20 +35,23 @@ class VacationsControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
-    get :edit, id: @vacation, :current_user_id => @user.id
+    get(:edit, {id: @vacation}, {:current_user_id => @user.id})
     assert_response :success
   end
 
   test "should update vacation" do
-    patch :update, {id: @vacation, name: "Testing Vacation"}, :current_user_id => @user.id
+    put(:update, {id: @vacation, vacation: {name: "test vaca"}}, {:current_user_id => @user.id})
     assert_redirected_to vacation_path(assigns(:vacation))
   end
 
   test "should destroy vacation" do
     assert_difference('Vacation.count', -1) do
-      delete :destroy, id: @vacation, :current_user_id => @user.id
+      delete(:destroy, {id: @vacation}, {:current_user_id => @user.id})
     end
 
     assert_redirected_to vacations_path
   end
 end
+
+
+# {vacation: {id: @vacation, name: "Testing Vacation"}
