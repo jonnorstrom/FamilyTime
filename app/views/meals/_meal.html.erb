@@ -1,1 +1,8 @@
-<%= "#{meal.day.strftime("%A")} #{meal.day.strftime("%b")} #{meal.day.day.ordinalize} |"%></br>
+<%= "#{meal.day.strftime("%A")} #{meal.day.strftime("%b")} #{meal.day.day.ordinalize}"%></br>
+
+<% if !meal.user_id %>
+  <%= render partial: 'meals/form', locals: {meal_id: meal.id}%>
+  ------------------------</br>
+<% else %>
+  <%= "#{meal.owner} has this meal" %></br></br>
+<% end %>
