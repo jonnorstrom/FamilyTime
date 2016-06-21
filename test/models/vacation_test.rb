@@ -28,7 +28,7 @@ class VacationTest < ActiveSupport::TestCase
       assert_not_empty(@vacation.meals)
     end
 
-    test "makes the corrent amount of meals" do
+    test "makes the correct amount of meals" do
       assert(@vacation.meals.first.day = Date.new(2016,4,12) && @vacation.meals.last.day = Date.new(2016,4,20))
     end
 
