@@ -27,6 +27,6 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "full name returns users first and last name" do
-    assert_equal(@user.full_name, "Jon Norstrom")
+    assert_equal(@user.full_name, "Jon Norstrom") 
   end
 end
