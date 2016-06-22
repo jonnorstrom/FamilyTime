@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<% if @topic.is_open == false %>
+<% if !@topic.is_open %>
   <h1> This topic is closed </h1>
 <% end %>
 
@@ -15,16 +15,18 @@
   <%= @topic.description %>
 </p>
 
-<%= render @topic.comments %>
+<%= render @topic.ordered_comments %>
 
-<% if @topic.is_open == true %>
+<% if @topic.is_open %>
   <h2>Write a Comment</h2>
   <%= render 'comments/form' %>
 
-  <%= render 'close' %>
+  <% if is_not_rooming? %>
+    <%= render 'close' %>
+  <% end %>
 <% end %>
 
 
 <% if meal_form? && form_is_closed("Where/When") %>
-  <%= render @vacation.meals %>
+  <%= render @vacation.ordered_meals %>
 <% end %>

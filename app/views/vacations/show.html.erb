@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 <h1><%= @vacation.name %></h1>
 
-<% @vacation.topics.each do |topic| %>
+<% @vacation.topics.order(:id).each do |topic| %>
   <%= link_to topic.name, vacation_topic_path(@vacation, topic) %>
 <% end %>
 </br>
@@ -10,7 +10,7 @@
 <%= render @vacation.guests %>
 </br>
 <p><%= link_to 'Attractions', vacation_attractions_path(@vacation) %></p>
-<%= render @vacation.attractions %>
+<%= render @vacation.attractions_by_id %>
 </br>
 <% if form_is_closed("Where/When") %>
   <h3>When is the Vacation?</h3>
