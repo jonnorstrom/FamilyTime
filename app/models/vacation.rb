@@ -23,15 +23,7 @@ class Vacation < ActiveRecord::Base
       end
     end
   end
-
-  def attractions_by_id
-    attractions.order(:id)
-  end
-
-  def ordered_meals
-    meals.order(:id)
-  end
-
+  
   private
 
   def ready_to_add_meals?

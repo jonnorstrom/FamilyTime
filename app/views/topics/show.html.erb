@@ -15,7 +15,7 @@
   <%= @topic.description %>
 </p>
 
-<%= render @topic.ordered_comments %>
+<%= render ordered_resource(@topic.comments) %>
 
 <% if @topic.is_open %>
   <h2>Write a Comment</h2>
@@ -28,5 +28,5 @@
 
 
 <% if meal_form? && form_is_closed("Where/When") %>
-  <%= render @vacation.ordered_meals %>
+  <%= render ordered_resource(@vacation.meals) %>
 <% end %>

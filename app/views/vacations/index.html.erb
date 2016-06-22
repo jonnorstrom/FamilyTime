@@ -11,12 +11,8 @@
   </thead>
 
   <tbody>
-    <% @vacations.each do |vacation| %>
+    <% ordered_resource(@vacations).each do |vacation| %>
     <p> - <%= link_to vacation.name, vacation %></p>
-      <!-- <tr>
-        <td><%= link_to 'Edit', edit_vacation_path(vacation) %></td>
-        <td><%= link_to 'Destroy', vacation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr> -->
     <% end %>
   </tbody>
 </table>
