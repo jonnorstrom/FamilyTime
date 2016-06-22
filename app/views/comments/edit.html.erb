@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', [@comment.topic, @comment] %> |
-<%= link_to 'Back', topic_comments_path(@comment.topic) %>
+<%= link_to 'Show', [current_vacation, @comment.topic, @comment] %> |
+<%= link_to 'Back', vacation_topic_comments_path(current_vacation, @comment.topic) %>
