@@ -26,6 +26,10 @@ module ApplicationHelper
     end
   end
 
+  def ordered_resource(resource)
+    resource.order(:id)
+  end
+
   def url_with_protocol(url)
     /^http/i.match(url) ? url : "http://#{url}"
   end
