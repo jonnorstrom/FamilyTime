@@ -1,18 +1,11 @@
 <p id="notice"><%= notice %></p>
-
 <h3>Vacations/Events</h3>
 <%= link_to 'Start a New Vacation', new_vacation_path %>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% ordered_resource(@vacations).each do |vacation| %>
-    <p> - <%= link_to vacation.name, vacation %></p>
-    <% end %>
-  </tbody>
-</table>
+<div class="all-vacations-container">
+  <% ordered_resource(@vacations).each do |vacation| %>
+    <div class="single-vacation">
+      <%= render partial: 'vacation_item', locals: {vacation: vacation} %>
+    </div>
+  <% end %>
+</div>
