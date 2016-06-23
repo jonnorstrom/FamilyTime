@@ -41,8 +41,8 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    if @user.authenticate(params[:old_password])
-      @user.update_password(params[:password])
+    if @user.authenticate(params[:user][:old_password])
+      @user.update_password(params[:user][:password])
       redirect_to root_path, notice: "Password successfully updated."
     else
       render :edit

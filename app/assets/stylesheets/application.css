@@ -33,7 +33,7 @@ display: block;
   left: 20px;
 }
 
-.login-container {
+.login-container, .password-container {
   margin-top: 80px;
   margin-bottom: 80px;
   padding-right: 15px;
@@ -52,4 +52,10 @@ display: block;
 
 .form-control {
   height: 50px;
+}
+
+.notation {
+  padding-top: 10px;
+  position: relative;
+  left: 5px;
 }
