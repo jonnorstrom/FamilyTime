@@ -14,3 +14,23 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+$(document).ready(function(){
+  $(".topic-tab").on('click', function(e){
+    e.preventDefault();
+    var topicId = $(this).attr('id').replace(/topic/, "");
+    var vacationId = 6
+    var url = "/vacations/"+ vacationId +"/topics/"+ topicId +""
+    // var vacationId = $()
+
+    var request = $.ajax({
+      url: url,
+      type: 'get',
+      dataType: 'json'
+    })
+
+    request.done(function(response){
+      $(".comments-container").empty();
+      $(".comments-container").append(response["html"]);
+    });
+  }); // end of topic-tab handler
+});

@@ -2,8 +2,9 @@
 <h1><%= @vacation.name %></h1>
 
 <% ordered_resource(@vacation.topics).each do |topic| %>
-  <%= link_to topic.name, vacation_topic_path(@vacation, topic) %>
+  <%= link_to topic.name, vacation_topic_path(@vacation, topic), class: "topic-tab", id: "topic#{topic.id}", :remote => true %>
 <% end %>
+<div class="comments-container"></div>
 </br>
 </br>
 <p><%= link_to 'Guest List', vacation_guests_path(@vacation) %> </p>
