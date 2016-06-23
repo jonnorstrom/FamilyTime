@@ -14,7 +14,7 @@
 
     <div class="actions">
       <%= f.hidden_field(:is_open, :value => false) %>
-      <%= f.submit "Close This Form" %>
+      <%= f.submit :value => "Close Form", class: 'btn btn-primary' %>
     </div>
   <% end %>
 <% end %>
