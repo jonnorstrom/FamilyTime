@@ -32,3 +32,24 @@ display: block;
   position: relative;
   left: 20px;
 }
+
+.login-container {
+  margin-top: 80px;
+  margin-bottom: 80px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  box-sizing: border-box;
+  max-width: 330px;
+}
+
+.submit-btn {
+  padding: 15px;
+  max-width: 330px;
+  margin-top: 3%;
+}
+
+.form-control {
+  height: 50px;
+}
