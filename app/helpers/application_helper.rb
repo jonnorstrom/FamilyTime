@@ -18,7 +18,7 @@ module ApplicationHelper
 
   def login_user(params)
     user = User.find_by(email: params[:email])
-    if user.authenticate(params[:password])
+    if user && user.authenticate(params[:password])
       session[:current_user_id] = user.id
       @notice = "Logged in Successfully"
     else
