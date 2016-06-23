@@ -5,11 +5,14 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato" />
   </head>
   <body>
     <% if current_user %>
       <p>Welcome <%= current_user.first_name %> | <%= link_to "Logout", sessions_destroy_path %> | <%= link_to "Change Password", edit_user_path(current_user) %> | <%= link_to "Home", root_path %></p>
     <% end %>
-    <%= yield %>
+    <div class="main-container">
+      <%= yield %>
+    </div>
   </body>
 </html>
