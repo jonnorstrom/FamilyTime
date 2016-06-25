@@ -1,24 +1,11 @@
 <div class="login-container">
   <%= form_for(@user, {:url => '/sessions/new', :method => 'post'}) do |f| %>
-
-    <% if @user.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-        <ul>
-        <% @user.errors.full_messages.each do |message| %>
-          <li<%= message %></li>
-        <% end %>
-        </ul>
-      </div>
-   <% end %>
-
     <div class='form-signin'>
       <%= f.label :email, class: "sr-only" %>
       <%= f.text_field :email, autofocus: "true", placeholder: "Email", class: "form-control" %>
       <%= f.label :password, class: "sr-only" %>
       <%= f.password_field :password, placeholder: "Password", class: "form-control" %>
-      <%= f.submit class: "btn btn-default btn-lg btn-block", value: "Sign in" %>
+      <%= f.submit class: "btn btn-primary btn-lg btn-block", value: "Sign in" %>
     </div>
    <% end %>
  </div>
