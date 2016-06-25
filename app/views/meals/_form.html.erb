@@ -1,0 +1,7 @@
+<%= form_for([current_vacation, @meal], {url: vacation_meal_path, method: 'put'}) do |f| %>
+  <div class="actions">
+    <%= f.hidden_field(:meal_id, :value => meal_id) %>
+    <%= f.hidden_field(:user_id, :value => current_user.id) %>
+    <%= f.submit value: "Sign up for this meal"%>
+  </div>
+<% end %>

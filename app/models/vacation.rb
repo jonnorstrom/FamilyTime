@@ -23,7 +23,7 @@ class Vacation < ActiveRecord::Base
       end
     end
   end
-
+  
   private
 
   def ready_to_add_meals?

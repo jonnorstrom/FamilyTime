@@ -1,22 +1,11 @@
 <p id="notice"><%= notice %></p>
-
-<h3>All Your Vacations</h3>
+<h3>Vacations/Events</h3>
 <%= link_to 'Start a New Vacation', new_vacation_path %>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @vacations.each do |vacation| %>
-    <p> - <%= link_to vacation.name, vacation %></p>
-      <!-- <tr>
-        <td><%= link_to 'Edit', edit_vacation_path(vacation) %></td>
-        <td><%= link_to 'Destroy', vacation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr> -->
-    <% end %>
-  </tbody>
-</table>
+<div class="all-vacations-container">
+  <% ordered_resource(@vacations).each do |vacation| %>
+    <div class="single-vacation">
+      <%= render partial: 'vacation_item', locals: {vacation: vacation} %>
+    </div>
+  <% end %>
+</div>

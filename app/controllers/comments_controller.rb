@@ -35,7 +35,7 @@ class CommentsController < ApplicationController
   # PUT topics/1/comments/1
   def update
     if @comment.update_attributes(comment_params)
-      redirect_to([@comment.topic, @comment], notice: 'Comment was successfully updated.')
+      redirect_to([@vacation, @topic], notice: 'Comment was successfully updated.')
     else
       render action: 'edit'
     end
