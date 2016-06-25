@@ -1,4 +1,5 @@
 <div class="login-container">
+  <p id="notice"><%= notice %></p>
   <%= form_for(@user, {:url => '/sessions/new', :method => 'post'}) do |f| %>
 
     <% if @user.errors.any? %>
