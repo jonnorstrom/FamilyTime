@@ -24,6 +24,10 @@
    font-family: Lato;
  }
 
+ #main-title {
+   color: rgb(85, 172, 252);
+ }
+
  .dropdown:hover .dropdown-menu {
 display: block;
 }
@@ -58,4 +62,21 @@ display: block;
   padding-top: 10px;
   position: relative;
   left: 5px;
+}
+
+.vacation-item {
+  height: 200px;
+  border: 2px rgb(85, 172, 252) solid;
+  margin: 10px;
+}
+
+.start-new {
+  position: fixed;
+  left: 15%;
+  border-radius: 50px;
+  border: 2px rgb(85, 172, 252) solid;
+}
+
+.navbar {
+  border-bottom: 2px rgb(85, 172, 252) solid;
 }

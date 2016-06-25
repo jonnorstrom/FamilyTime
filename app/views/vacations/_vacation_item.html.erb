@@ -1,1 +1,11 @@
-<p> - <%= link_to vacation.name, vacation %></p>
+<div class="vacation-item col-md-3">
+  <h4 class="text-center" ><%= link_to vacation.name, vacation %></h4>
+  <ul>
+    <% if vacation.has_start_and_end? %>
+      <li><%= vacation.start.strftime("%b %e") %> - <%= vacation.end.strftime("%b %e") %></li>
+    <% end %>
+    <% if vacation.location %>
+      <li><%= vacation.location %></li>
+    <% end %>
+  </ul>
+</div>
