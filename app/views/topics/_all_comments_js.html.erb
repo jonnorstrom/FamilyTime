@@ -27,11 +27,13 @@
 
 <% if is_not_rooming? %>
   <% if current_user.is_admin %>
-    <%= form_for([@topic.vacation, @topic], {:method => 'put'}) do |f| %>
-      <div class="actions">
-        <%= f.hidden_field(:is_open, :value => false) %>
-        <%= f.submit :value => "Close Form", class: 'btn btn-primary' %>
-      </div>
+    <% if @topic.is_open %>
+      <%= form_for([@topic.vacation, @topic], {:method => 'put'}) do |f| %>
+        <div class="actions">
+          <%= f.hidden_field(:is_open, :value => false) %>
+          <%= f.submit :value => "Close Form", class: 'btn btn-primary' %>
+        </div>
+      <% end %>
     <% end %>
   <% end %>
 <% end %>

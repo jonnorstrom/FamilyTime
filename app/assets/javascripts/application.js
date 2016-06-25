@@ -14,14 +14,15 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
 $(document).ready(function(){
-  $(".topic-tab").on('click', function(e){
+  $(".main-container").on('click', ".topic-tab", function(e){
     e.preventDefault();
     var topicId = $(this).attr('id').replace(/topic/, "");
-    var vacationId = 6
+    var vacationId = window.location.href.replace(/.*vacations./, "")
     var url = "/vacations/"+ vacationId +"/topics/"+ topicId +""
-    // var vacationId = $()
-
+    console.log(vacationId)
     var request = $.ajax({
       url: url,
       type: 'get',
