@@ -70,8 +70,22 @@ display: block;
   margin: 10px;
 }
 
+.vacation-item:hover {
+  background-color: rgb(85, 172, 252);
+  border: 2px white solid;
+}
+
+.vacation-item:hover a{
+  color: white;
+}
+
+.vacation-item a:hover {
+  text-decoration: underline;
+  background-color: rgb(85, 172, 252);
+}
+
 .start-new {
-  position: fixed;
+  position: fixed; 
   left: 15%;
   border-radius: 50px;
   border: 2px rgb(85, 172, 252) solid;
