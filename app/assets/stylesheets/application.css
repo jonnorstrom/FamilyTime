@@ -24,7 +24,7 @@
    font-family: Lato;
  }
 
- #main-title {
+ #main-title, #vacation-show-title {
    color: rgb(85, 172, 252);
  }
 
@@ -85,7 +85,7 @@ display: block;
 }
 
 .start-new {
-  position: fixed; 
+  position: fixed;
   left: 15%;
   border-radius: 50px;
   border: 2px rgb(85, 172, 252) solid;
@@ -93,4 +93,32 @@ display: block;
 
 .navbar {
   border-bottom: 2px rgb(85, 172, 252) solid;
+}
+
+.topic-tabs {
+  padding-top: 15px;
+}
+
+.topic-tabs.nav-tabs > li > a {
+  border-bottom: 1px rgb(85, 172, 252) solid;
+}
+
+
+.nav-tabs > li.active > a,
+.nav-tabs > li:hover > a {
+  color: white;
+}
+
+.vacation-option {
+  background: rgba(105, 192, 255, .5);
+  border: 1px rgba(85, 172, 252, .8) solid;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.form-closed {
+  background: rgba(105, 192, 255, .5);
+  border: 1px rgba(85, 172, 252, .8) solid;
+  padding-top: 24px;
+  padding-bottom: 24px;
 }

@@ -1,0 +1,9 @@
+<div class="vacation-name-container">
+  <%= form_for(@vacation, {:method => 'put'}) do |f| %>
+  <div class="form-vacation-location">
+      <%= f.label :location, class: "sr-only"%>
+      <%= f.text :location, autofocus: "true", placeholder: "Put Address Here", class: "form-control" %>
+      <%= f.submit class: "btn btn-primary btn-lg btn-block", value: "Submit" %>
+  </div>
+  <% end %>
+</div>

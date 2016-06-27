@@ -1,18 +1,27 @@
 <p id="notice"><%= notice %></p>
-<h1><%= @vacation.name %></h1>
 
-<% ordered_resource(@vacation.topics).each do |topic| %>
-  <%= link_to topic.name, vacation_topic_path(@vacation, topic) %>
-<% end %>
-</br>
-</br>
-<p><%= link_to 'Guest List', vacation_guests_path(@vacation) %> </p>
-<%= render @vacation.guests %>
-</br>
-<p><%= link_to 'Attractions', vacation_attractions_path(@vacation) %></p>
-<%= render ordered_resource(@vacation.attractions) %>
-</br>
-<% if form_is_closed("Where/When") %>
-  <h3>When is the Vacation?</h3>
-  <%= render 'start_end_vacation' %>
-<% end %>
+<div class="vacation-show-container">
+  <div class="col-md-7 right-side">
+    <h2 id="vacation-show-title" class="text-center"><%= @vacation.name %></h2>
+
+  <% if form_is_closed("Where/When") %>
+    <h4 class="vacation-option text-center">Click here to set the date</h4>
+    <h4 class="vacation-option text-center">Click here to set a location</h4>
+  <% else %>
+    <h4 class="vacation-option form-closed text-center">The 'Where/When' form must be closed before you can set the Date/Place</h4>
+  <% end %>
+
+    <p><%= link_to 'Guest List', vacation_guests_path(@vacation) %> </p>
+    <%= render @vacation.guests %>
+    </br>
+    <p><%= link_to 'Attractions', vacation_attractions_path(@vacation) %></p>
+    <%= render ordered_resource(@vacation.attractions) %>
+  </div>
+  <div class="col-md-5 left-side">
+    <ul class="topic-tabs nav nav-tabs nav-justified">
+      <% ordered_resource(@vacation.topics).each do |topic| %>
+        <li><%= link_to topic.name, vacation_topic_path(@vacation, topic) %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

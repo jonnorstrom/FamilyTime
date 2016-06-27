@@ -1,16 +1,4 @@
 <%= form_for(@vacation, {:method => 'put'}) do |f| %>
-  <% if @vacation.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@vacation.errors.count, "error") %> prohibited this vacation from being saved:</h2>
-
-      <ul>
-      <% @vacation.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <div class="field">
     <%= f.label 'Start' %>
     <%= f.date_field :start %>
