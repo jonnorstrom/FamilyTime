@@ -141,8 +141,8 @@ display: block;
 
 
 .meals-container {
-  border: 1px red dotted;
-  /*box-sizing: border-box;*/
+  background: rgba(105, 192, 255, .5);
+  border: 1px rgba(85, 172, 252, .8) solid;
 }
 
 .meals-sub-container {
@@ -157,9 +157,10 @@ display: block;
   flex-direction: column;
   max-width: 170px;
   min-height: 100px;
-  border: 1px blue dotted;
+  border: 1px rgb(85, 172, 252) solid;
   justify-content: space-between;
   padding: 15px;
+  background: rgb(85, 172, 252);
 }
 
 .meal-item > p {
@@ -172,4 +173,13 @@ display: block;
 
 .meal-submit {
   margin: auto;
+}
+
+.all-comments-container {
+  border-left: 1px rgb(85, 172, 252) solid;
+  border-right: 1px rgb(85, 172, 252) solid;
+  border-bottom: 1px rgb(85, 172, 252) solid;
+  padding: 10px;
+  height: 500px;
+  overflow: auto;
 }
