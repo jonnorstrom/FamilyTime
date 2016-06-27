@@ -5,8 +5,17 @@
     <h2 id="vacation-show-title" class="text-center"><%= @vacation.name %></h2>
 
   <% if form_is_closed("Where/When") %>
-    <h4 class="vacation-option text-center">Click here to set the date</h4>
-    <h4 class="vacation-option text-center">Click here to set a location</h4>
+    <% if @vacation.has_start_and_end? %>
+      <h4 class="vacation-option text-center">Dates: <%= @vacation.start.strftime("%b %e") %> - <%= @vacation.end.strftime("%b %e") %></h4>
+    <% else %>
+      <%= render "start_end_vacation" %>
+    <% end %>
+
+    <% if @vacation.location %>
+      <h4 class="vacation-option text-center">Location: <%= @vacation.location %></h4>
+    <% else %>
+      <%= render "set_place" %>
+    <% end %>
   <% else %>
     <h4 class="vacation-option form-closed text-center">The 'Where/When' form must be closed before you can set the Date/Place</h4>
   <% end %>

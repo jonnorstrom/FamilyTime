@@ -1,9 +1,8 @@
-<div class="vacation-name-container">
+<div class="vacation-location-container col-lg-offset-2">
   <%= form_for(@vacation, {:method => 'put'}) do |f| %>
-  <div class="form-vacation-location">
-      <%= f.label :location, class: "sr-only"%>
-      <%= f.text :location, autofocus: "true", placeholder: "Put Address Here", class: "form-control" %>
-      <%= f.submit class: "btn btn-primary btn-lg btn-block", value: "Submit" %>
-  </div>
+    <div class="form-group col-xs-8">
+      <%= f.text_field :location, autofocus: "true", placeholder: "Put Address Here", class: "form-control" %>
+    </div>
+    <%= f.submit class: "btn btn-primary btn-lg", value: "Submit" %>
   <% end %>
 </div>
