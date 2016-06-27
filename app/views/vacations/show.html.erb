@@ -1,18 +1,71 @@
 <p id="notice"><%= notice %></p>
-<h1><%= @vacation.name %></h1>
 
-<% ordered_resource(@vacation.topics).each do |topic| %>
-  <%= link_to topic.name, vacation_topic_path(@vacation, topic) %>
-<% end %>
-</br>
-</br>
-<p><%= link_to 'Guest List', vacation_guests_path(@vacation) %> </p>
-<%= render @vacation.guests %>
-</br>
-<p><%= link_to 'Attractions', vacation_attractions_path(@vacation) %></p>
-<%= render ordered_resource(@vacation.attractions) %>
-</br>
-<% if form_is_closed("Where/When") %>
-  <h3>When is the Vacation?</h3>
-  <%= render 'start_end_vacation' %>
-<% end %>
+<div class="vacation-show-container">
+  <div class="col-md-7 right-side">
+    <h2 id="vacation-show-title" class="text-center"><%= @vacation.name %></h2>
+
+  <% if form_is_closed("Where/When") %>
+    <% if @vacation.has_start_and_end? %>
+      <h4 class="vacation-option text-center">Dates: <%= @vacation.start.strftime("%b %e") %> - <%= @vacation.end.strftime("%b %e") %></h4>
+    <% else %>
+      <%= render "start_end_vacation" %>
+    <% end %>
+
+    <% if @vacation.location %>
+      <h4 class="vacation-option text-center">Location: <%= @vacation.location %></h4>
+    <% else %>
+      <%= render "set_place" %>
+    <% end %>
+  <% else %>
+    <h4 class="vacation-option form-closed text-center">The 'Where/When' form must be closed before you can set the Date/Place</h4>
+  <% end %>
+
+  <div class="meals-container col-md-12">
+    <div class="meals-sub-container col-md-12">
+      <%= render ordered_resource(@vacation.meals) %>
+    </div>
+  </div>
+
+    <p><%= link_to 'Guest List', vacation_guests_path(@vacation) %> </p>
+    <%= render @vacation.guests %>
+    </br>
+    <p><%= link_to 'Attractions', vacation_attractions_path(@vacation) %></p>
+    <%= render ordered_resource(@vacation.attractions) %>
+  </div>
+  <div class="col-md-5 left-side">
+    <ul class="topic-tabs nav nav-tabs nav-justified">
+      <% ordered_resource(@vacation.topics).each do |topic| %>
+        <li><%= link_to topic.name, vacation_topic_path(@vacation, topic) %></li>
+      <% end %>
+    </ul>
+    <div class="all-comments-container">
+      <p> hello world  </p>
+      <p> hello world  </p>
+      <p> hello world  </p>
+      <p> hello world  </p>
+      <p> NO world  </p>
+      <p> hello world  </p>
+      <p> hello world  </p>
+      <p> hello world  </p>
+      <p> hello PEACE  </p>
+      <p> hello world  </p>
+      <p> hello world  </p>
+      <p> stupid  </p>
+      <p> hello world  </p>
+      <p> hello world  </p>
+      <p> hello world  </p>
+      <p> hello world  </p>
+      <p> PARTY world  </p>
+      <p> hello world  </p>
+      <p> hello world  </p>
+      <p> hello world  </p>
+      <p> hello world  </p>
+      <p> SOMETHING world  </p>
+      <p> hello world  </p>
+      <p> hello world  </p>
+      <p> hello world  </p>
+      <p> NEW world  </p>
+      <p> hello world  </p>
+    </div>
+  </div>
+</div>

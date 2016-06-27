@@ -24,7 +24,7 @@
    font-family: Lato;
  }
 
- #main-title {
+ #main-title, #vacation-show-title {
    color: rgb(85, 172, 252);
  }
 
@@ -85,7 +85,7 @@ display: block;
 }
 
 .start-new {
-  position: fixed; 
+  position: fixed;
   left: 15%;
   border-radius: 50px;
   border: 2px rgb(85, 172, 252) solid;
@@ -93,4 +93,93 @@ display: block;
 
 .navbar {
   border-bottom: 2px rgb(85, 172, 252) solid;
+}
+
+.topic-tabs {
+  padding-top: 15px;
+}
+
+.topic-tabs.nav-tabs > li > a {
+  border-bottom: 1px rgb(85, 172, 252) solid;
+}
+
+
+.nav-tabs > li.active > a,
+.nav-tabs > li:hover > a {
+  color: white;
+}
+
+.vacation-option {
+  background: rgba(105, 192, 255, .5);
+  border: 1px rgba(85, 172, 252, .8) solid;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.form-closed {
+  background: rgba(105, 192, 255, .5);
+  border: 1px rgba(85, 172, 252, .8) solid;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.vacation-location-container {
+  margin-bottom: 20px;
+}
+
+.vacation-dates-container {
+  margin-right: auto;
+  margin-left: auto;
+  box-sizing: border-box;
+  max-width: 700px;
+}
+
+.dates-submit {
+  position: relative;
+  left: 15px;
+}
+
+
+.meals-container {
+  background: rgba(105, 192, 255, .5);
+  border: 1px rgba(85, 172, 252, .8) solid;
+}
+
+.meals-sub-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.meal-item {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  max-width: 170px;
+  min-height: 100px;
+  border: 1px rgb(85, 172, 252) solid;
+  justify-content: space-between;
+  padding: 15px;
+  background: rgb(85, 172, 252);
+}
+
+.meal-item > p {
+  text-align: center;
+}
+
+.meal-item > .meal-time {
+  margin-top: 10px;
+}
+
+.meal-submit {
+  margin: auto;
+}
+
+.all-comments-container {
+  border-left: 1px rgb(85, 172, 252) solid;
+  border-right: 1px rgb(85, 172, 252) solid;
+  border-bottom: 1px rgb(85, 172, 252) solid;
+  padding: 10px;
+  height: 500px;
+  overflow: auto;
 }

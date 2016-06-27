@@ -1,0 +1,8 @@
+<div class="vacation-location-container col-lg-offset-2">
+  <%= form_for(@vacation, {:method => 'put'}) do |f| %>
+    <div class="form-group col-xs-8">
+      <%= f.text_field :location, autofocus: "true", placeholder: "Put Address Here", class: "form-control" %>
+    </div>
+    <%= f.submit class: "btn btn-primary btn-lg", value: "Submit" %>
+  <% end %>
+</div>
