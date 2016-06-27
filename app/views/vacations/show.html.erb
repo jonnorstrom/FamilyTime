@@ -20,6 +20,12 @@
     <h4 class="vacation-option form-closed text-center">The 'Where/When' form must be closed before you can set the Date/Place</h4>
   <% end %>
 
+  <div class="meals-container col-md-12">
+    <div class="meals-sub-container col-md-12">
+      <%= render ordered_resource(@vacation.meals) %>
+    </div>
+  </div>
+
     <p><%= link_to 'Guest List', vacation_guests_path(@vacation) %> </p>
     <%= render @vacation.guests %>
     </br>

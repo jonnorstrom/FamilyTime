@@ -1,8 +1,9 @@
-<%= "#{meal.day.strftime("%A")} #{meal.day.strftime("%b")} #{meal.day.day.ordinalize}"%></br>
+<div class="meal-item">
+<p class="meal-time"><%= "#{meal.day.strftime("%A")} #{meal.day.strftime("%b")} #{meal.day.day.ordinalize}"%></p>
 
 <% if !meal.user_id && current_user.is_admin %>
-    <%= render partial: 'meals/form', locals: {meal_id: meal.id}%>
-    ------------------------</br>
+    <%= render partial: 'meals/form', locals: {this_vacation: meal.vacation, meal_id: meal.id}%>
 <% else %>
-  <%= meal.statement %></br></br>
+  <p><%= meal.statement %></p>
 <% end %>
+</div>

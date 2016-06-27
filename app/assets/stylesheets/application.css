@@ -138,3 +138,38 @@ display: block;
   position: relative;
   left: 15px;
 }
+
+
+.meals-container {
+  border: 1px red dotted;
+  /*box-sizing: border-box;*/
+}
+
+.meals-sub-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.meal-item {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  max-width: 170px;
+  min-height: 100px;
+  border: 1px blue dotted;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.meal-item > p {
+  text-align: center;
+}
+
+.meal-item > .meal-time {
+  margin-top: 10px;
+}
+
+.meal-submit {
+  margin: auto;
+}
