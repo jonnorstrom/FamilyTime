@@ -1,9 +1,14 @@
-<%= form_for([current_vacation, @attraction]) do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %><br>
-    <%= f.label :weblink %>
-    <%= f.text_field :weblink %><br>
-    <%= f.label :location %>
-    <%= f.text_field :location %><br>
-    <%= f.submit %>
+<div class="form-group">
+<%= form_for([current_vacation, @attraction], :html => {class: "form-inline"}) do |f| %>
+  <div class="input-group col-md-5">
+    <%= f.text_field :name, class: "form-control guest-input", placeholder: "Name" %>
+  </div>
+  <div class="input-group col-md-5">
+    <%= f.text_field :weblink, class: "form-control guest-input", placeholder: "Link" %>
+  </div>
+  <div class="input-group col-md-5">
+    <%= f.text_field :location, class: "form-control guest-input", placeholder: "Location" %>
+  </div>
+    <%= f.submit class: "btn btn-default btn-sm", value: "Add Attraction" %>
 <% end %>
+</div>
