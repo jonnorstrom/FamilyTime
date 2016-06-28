@@ -11,6 +11,8 @@ class VacationsController < ApplicationController
   # GET /vacations/1
   # GET /vacations/1.json
   def show
+    @attraction = Attraction.new
+    @guest = Guest.new
   end
 
   # GET /vacations/new

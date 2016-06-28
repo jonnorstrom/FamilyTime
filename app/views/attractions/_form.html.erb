@@ -1,29 +1,9 @@
-<%= form_for([@attraction.vacation, @attraction]) do |f| %>
-  <% if @attraction.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@attraction.errors.count, "error") %> prohibited this attraction from being saved:</h2>
-
-      <ul>
-      <% @attraction.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :weblink %><br />
-    <%= f.text_field :weblink %>
-  </div>
-  <div class="field">
-    <%= f.label :location %><br />
-    <%= f.text_field :location %>
-  </div>
-  <div class="actions">
+<%= form_for([current_vacation, @attraction]) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+    <%= f.label :weblink %>
+    <%= f.text_field :weblink %><br>
+    <%= f.label :location %>
+    <%= f.text_field :location %><br>
     <%= f.submit %>
-  </div>
 <% end %>
