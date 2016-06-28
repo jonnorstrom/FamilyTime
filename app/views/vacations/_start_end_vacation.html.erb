@@ -1,25 +1,15 @@
-<%= form_for(@vacation, {:method => 'put'}) do |f| %>
-  <% if @vacation.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@vacation.errors.count, "error") %> prohibited this vacation from being saved:</h2>
-
-      <ul>
-      <% @vacation.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label 'Start' %>
-    <%= f.date_field :start %>
-  </div>
-  <div class="field">
-    <%= f.label 'End' %>
-    <%= f.date_field :end %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+<div class="vacation-dates-container col-lg-offset-2">
+<%= form_for(@vacation, {:method => 'put', :html => {class: "form-horizontal"}}) do |f| %>
+  <div class="form-group">
+      <%= f.label 'Start', class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.date_field :start, class: "form-control" %>
+      </div>
+      <%= f.label 'End', class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.date_field :end, class: "form-control" %>
+      </div>
+      <%= f.submit class: "dates-submit col-lg-offset-2 btn btn-primary btn-lg", value: "Set Dates" %>
   </div>
 <% end %>
+</div>

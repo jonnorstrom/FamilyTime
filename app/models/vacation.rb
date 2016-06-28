@@ -17,18 +17,19 @@ class Vacation < ActiveRecord::Base
   end
 
   def make_vacation_meals
-    if ready_to_add_meals?
+    if has_start_and_end?
       if meals_unaccounted_for?
         set_meal_dates
       end
     end
   end
+
+  def has_start_and_end?
+    start && self.end
+  end
   
   private
 
-  def ready_to_add_meals?
-    start && self.end
-  end
 
   def make_new(name, description)
     topics.create(name: name, description: description)

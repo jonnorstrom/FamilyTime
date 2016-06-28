@@ -1,21 +1,9 @@
+<div class="login-container">
 <%= form_for(@vacation) do |f| %>
-  <% if @vacation.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@vacation.errors.count, "error") %> prohibited this vacation from being saved:</h2>
-
-      <ul>
-      <% @vacation.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-new-vacation">
+    <%= f.label :name, class: "sr-only" %>
+    <%= f.text_field :name, autofocus: "true", placeholder: "Name of Event", class: "form-control" %>
+    <%= f.submit class: "btn btn-primary btn-lg btn-block", value: "Create New" %>
   </div>
 <% end %>
+</div>

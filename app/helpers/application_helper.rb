@@ -4,7 +4,7 @@ module ApplicationHelper
   end
 
   def current_vacation
-    @vacation ||= Vacation.find(params[:vacation_id])
+    @vacation ||= (Vacation.find(params[:vacation_id]) || Vacation.find(params[:id]))
   end
 
   def current_topic

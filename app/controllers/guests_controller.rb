@@ -24,7 +24,7 @@ class GuestsController < ApplicationController
     @guest = @vacation.guests.build(guest_params)
 
     if @guest.save
-      redirect_to(vacation_guests_path, notice: 'Guest was successfully created.')
+      redirect_to(vacation_path(@vacation))
     else
       render action: 'new'
     end

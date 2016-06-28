@@ -1,0 +1,41 @@
+<h2 id="vacation-show-title" class="text-center"><%= @vacation.name %></h2>
+
+<div class="operations-container col-md-12">
+  <% if form_is_closed("Where/When") %>
+    <% @vacation.has_start_and_end? ? date_file = "show_dates" : date_file = "start_end_vacation" %>
+    <%= render date_file %>
+
+    <% @vacation.location ? location_file = "show_location" : file = "set_place" %>
+    <%= render location_file %>
+  <% else %>
+    <h4 class="vacation-option form-closed text-center">The 'Where/When' form must be closed before you can set the Date/Place</h4>
+  <% end %>
+</div>
+<div class="meals-container col-md-12">
+    <% if @vacation.meals.empty? %>
+    <div class="meals-error-container col-md-12">
+      <h3 class="text-center">Whoops! No vacation dates set yet<h3>
+      <h4 class="text-center">Please set the vacation dates to see all the available meals!</h4>
+    </div>
+    <% else %>
+    <div class="meals-sub-container col-md-12">
+      <%= render ordered_resource(@vacation.meals) %>
+    </div>
+    <% end %>
+</div>
+<div class="guest-attractions-container col-md-12">
+  <div class="attractions-container col-sm-6">
+    <h4 class="text-center">Attractions</h4>
+    <%= render ordered_resource(@vacation.attractions) %>
+    <div class="guest-attraction-form col-md-12">
+      <%= render "attractions/form" %>
+    </div>
+  </div>
+  <div class="guests-container col-sm-6">
+    <h4 class="text-center">Guest List</h4>
+    <%= render @vacation.guests %>
+    <div class="guest-attraction-form col-md-12">
+      <%= render "guests/form" %>
+    </div>
+  </div>
+</div>

@@ -1,19 +1,8 @@
-<p id="notice"><%= notice %></p>
-<h1><%= @vacation.name %></h1>
-
-<% ordered_resource(@vacation.topics).each do |topic| %>
-  <%= link_to topic.name, vacation_topic_path(@vacation, topic), class: "topic-tab", id: "topic#{topic.id}", :remote => true %>
-<% end %>
-<div class="comments-container"></div>
-</br>
-</br>
-<p><%= link_to 'Guest List', vacation_guests_path(@vacation) %> </p>
-<%= render @vacation.guests %>
-</br>
-<p><%= link_to 'Attractions', vacation_attractions_path(@vacation) %></p>
-<%= render ordered_resource(@vacation.attractions) %>
-</br>
-<% if form_is_closed("Where/When") %>
-  <h3>When is the Vacation?</h3>
-  <%= render 'start_end_vacation' %>
-<% end %>
+<div class="vacation-show-container col-md-12">
+  <div class="col-md-7 left-side">
+    <%= render "left_side" %>
+  </div>
+  <div class="col-md-5 right-side">
+    <%= render "right_side" %>
+  </div>
+</div>

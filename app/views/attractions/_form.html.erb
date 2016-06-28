@@ -1,29 +1,14 @@
-<%= form_for([@attraction.vacation, @attraction]) do |f| %>
-  <% if @attraction.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@attraction.errors.count, "error") %> prohibited this attraction from being saved:</h2>
-
-      <ul>
-      <% @attraction.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+<div class="form-group">
+<%= form_for([current_vacation, @attraction], :html => {class: "form-inline"}) do |f| %>
+  <div class="input-group col-md-5">
+    <%= f.text_field :name, class: "form-control guest-input", placeholder: "Name" %>
   </div>
-  <div class="field">
-    <%= f.label :weblink %><br />
-    <%= f.text_field :weblink %>
+  <div class="input-group col-md-5">
+    <%= f.text_field :weblink, class: "form-control guest-input", placeholder: "Link" %>
   </div>
-  <div class="field">
-    <%= f.label :location %><br />
-    <%= f.text_field :location %>
+  <div class="input-group col-md-5">
+    <%= f.text_field :location, class: "form-control guest-input", placeholder: "Location" %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <%= f.submit class: "btn btn-default btn-sm", value: "Add Attraction" %>
 <% end %>
+</div>
