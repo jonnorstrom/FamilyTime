@@ -212,6 +212,7 @@ display: block;
 
 .attractions-container, .guests-container {
   display: flex;
+  flex: 1;
   flex-direction: column;
   background: rgba(105, 192, 255, .5);
   border: 1px rgba(85, 172, 252, .8) solid;
