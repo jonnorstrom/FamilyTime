@@ -182,3 +182,17 @@ display: block;
   height: 500px;
   overflow: auto;
 }
+
+.vacation-show-container, .operations-container, .guest-attractions-container {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.guest-attractions-container {
+  margin-top: 14px;
+}
+
+.attractions-container, .guests-container {
+  background: rgba(105, 192, 255, .5);
+  border: 1px rgba(85, 172, 252, .8) solid;
+}
