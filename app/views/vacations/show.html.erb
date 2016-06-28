@@ -29,12 +29,16 @@
       <div class="attractions-container col-md-6">
         <h4 class="text-center">Attractions</h4>
         <%= render ordered_resource(@vacation.attractions) %>
-        <%= render "attractions/form" %>
+        <div class="guest-attraction-form">
+          <%= render "attractions/form" %>
+        </div>
       </div>
       <div class="guests-container col-md-6">
         <h4 class="text-center">Guest List</h4>
         <%= render @vacation.guests %>
-        <%= render "guests/form" %>
+        <div class="guest-attraction-form col-md-12">
+          <%= render "guests/form" %>
+        </div>
       </div>
     </div>
   </div>

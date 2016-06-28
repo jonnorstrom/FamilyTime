@@ -189,10 +189,24 @@ display: block;
 }
 
 .guest-attractions-container {
+  display: flex;
   margin-top: 14px;
 }
 
 .attractions-container, .guests-container {
+  display: flex;
+  flex-direction: column;
   background: rgba(105, 192, 255, .5);
   border: 1px rgba(85, 172, 252, .8) solid;
+  padding-bottom: 100px;
+}
+
+.guest-attraction-form {
+  position: absolute;
+  bottom: 0;
+  margin-left: auto;
+}
+
+.guest-input {
+  height: 30px;
 }
