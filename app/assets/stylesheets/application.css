@@ -143,23 +143,44 @@ display: block;
 .meals-container {
   background: rgba(105, 192, 255, .5);
   border: 1px rgba(85, 172, 252, .8) solid;
+  padding-right: 0px;
+  padding-left: 0px;
 }
 
 .meals-sub-container {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
+  padding: 15px;
+}
+
+.meals-error-container {
+  min-height: 145px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.meals-error-container > h4, h3 {
+  margin: 3px;
 }
 
 .meal-item {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  width: 150px;
+  width: 160px;
   min-height: 100px;
   border: 1px rgb(85, 172, 252) solid;
+  background: rgb(85, 172, 252);
   justify-content: space-between;
   padding: 15px;
-  background: rgb(85, 172, 252);
+  margin: 5px;
+}
+
+.thumbnail {
+  border: 2px rgba(255,255,255,.8) solid;
+  border-radius: 6px;
 }
 
 .meal-item > p {
@@ -168,10 +189,6 @@ display: block;
 
 .meal-item > .meal-time {
   margin-top: 10px;
-}
-
-.meal-submit {
-  margin: auto;
 }
 
 .all-comments-container {
