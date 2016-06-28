@@ -2,7 +2,7 @@
 <p class="meal-time"><%= "#{meal.day.strftime("%A")} #{meal.day.strftime("%b")} #{meal.day.day.ordinalize}"%></p>
 
 <% if !meal.user_id && current_user.is_admin %>
-    <%= render partial: 'meals/form', locals: {this_vacation: meal.vacation, meal_id: meal.id}%>
+    <%= render partial: 'meals/form', locals: {this_meal: meal}%>
 <% else %>
   <p><%= meal.statement %></p>
 <% end %>
