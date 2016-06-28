@@ -1,5 +1,5 @@
-<%= form_for([this_vacation, Meal.find(meal_id)], {url: "/vacations/#{this_vacation.id}/meals/#{meal_id}", method: 'put'}) do |f| %>
-    <%= f.hidden_field(:meal_id, :value => meal_id) %>
+<%= form_for([current_vacation, this_meal], {url: vacation_meal_path(current_vacation, this_meal), method: 'put'}) do |f| %>
+    <%= f.hidden_field(:meal_id, :value => this_meal.id) %>
     <%= f.hidden_field(:user_id, :value => current_user.id) %>
-    <%= f.submit value: "Sign up for this meal", class: "btn btn-default btn-sm  meal-submit"%>
+    <%= f.submit value: "Sign up for this meal", class: "btn btn-default btn-sm  meal-submit" %>
 <% end %>
