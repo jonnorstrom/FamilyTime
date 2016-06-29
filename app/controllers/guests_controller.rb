@@ -24,7 +24,12 @@ class GuestsController < ApplicationController
     @guest = @vacation.guests.build(guest_params)
 
     if @guest.save
-      redirect_to(vacation_path(@vacation))
+      if request.xhr?
+        render :json => {:html => (render_to_string partial: 'guest.html.erb', :locals => {guest: @guest})}
+        # render_to_string(:partial => 'partial_file.html', :locals => {:variable => variable}, :format => :html)
+      else
+        redirect_to(@vacation)
+      end
     else
       render action: 'new'
     end

@@ -19,6 +19,47 @@ function removeActive(){
   $(".topic-tabs").find(".topic-tab").removeClass("active")
 }
 
+function mealSignUp(clicked){
+  var $thumbnail = clicked;
+  var $form = $thumbnail.find('form');
+  var url = $form.attr('action');
+  var data = $form.serialize();
+  var method = $form.attr('method')
+
+  var request = $.ajax({
+    url: url,
+    type: method,
+    data: data
+  })
+
+  request.done(function(response){
+    $form.remove();
+    $thumbnail.append(response['html']);
+  });
+}
+
+function addGuestAttraction(clicked){
+  var $button = clicked;
+  var $parentDiv = $button.parent()
+  var $form = $button.find('form');
+  var url = $form.attr('action');
+  var data = $form.serialize();
+  var method = $form.attr('method')
+
+  var request = $.ajax({
+    url: url,
+    type: method,
+    data: data
+  })
+
+  request.done(function(response){
+    $parentDiv.find('.inner-list').append(response['html']);
+    $parentDiv.find('form')[0].reset()
+    $parentDiv.find('.guest-attraction-form').addClass('hidden')
+    $parentDiv.children().last().removeClass('hidden')
+  })
+}
+
 function getComments(topicId){
   var vacationId = window.location.href.replace(/.*vacations./, "")
   var url = "/vacations/"+ vacationId +"/topics/"+ topicId +""
@@ -63,21 +104,16 @@ $(document).ready(function(){
 
   $(".meal-item").on('submit', function(e){
     e.preventDefault();
-    var $thumbnail = $(this);
-    var $form = $thumbnail.find('form');
-    var url = $form.attr('action');
-    var data = $form.serialize();
-    var method = $form.attr('method')
-
-    var request = $.ajax({
-      url: url,
-      type: method,
-      data: data
-    })
-
-    request.done(function(response){
-      $form.remove();
-      $thumbnail.append(response['html']);
-    });
+    mealSignUp($(this));
   });
+
+  $('.guest-attractions-container').on('click', '.guest-attraction-button', function(){
+    $(this).addClass('hidden')
+    $(this).parent().find('.guest-attraction-form').removeClass('hidden')
+  })
+
+  $('.guest-attraction-form').on('submit', function(e){
+    e.preventDefault();
+    addGuestAttraction($(this));
+  })
 });
