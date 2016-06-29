@@ -209,6 +209,7 @@ display: block;
 .guest-attractions-container {
   display: flex;
   margin-top: 14px;
+  margin-bottom: 20px;
 }
 
 .attractions-container, .guests-container {

@@ -55,7 +55,7 @@ $(document).ready(function(){
   $(".right-side").on('click', ".topic-tab", function(e){
     e.preventDefault();
     var topicId = $(this).attr('id').replace(/topic/, "");
-
+    
     removeActive();
     $(this).addClass("active");
     getComments(topicId);
