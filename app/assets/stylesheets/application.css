@@ -200,7 +200,8 @@ display: block;
   overflow: auto;
 }
 
-.vacation-show-container, .operations-container, .guest-attractions-container {
+.vacation-show-container, .operations-container,
+.guest-attractions-container, .comment-container {
   padding-left: 0;
   padding-right: 0;
 }
@@ -227,4 +228,15 @@ display: block;
 
 .guest-input {
   height: 30px;
+}
+
+.comment-container {
+  background: rgba(105, 192, 255, .5);
+  border: 1px rgba(85, 172, 252, .8) solid;
+}
+
+.comment-container {
+  padding: 5px 3px 6px 12px;
+  margin-bottom: 5px;
+  border-radius: 6px;
 }

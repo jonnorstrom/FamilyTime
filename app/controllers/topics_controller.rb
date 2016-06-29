@@ -11,6 +11,12 @@ class TopicsController < ApplicationController
     ## because new comment form is on this page
     @comment = Comment.new
     @meal = Meal.new
+    session[:topic_id] = params[:id]
+    respond_to do |format|
+      format.json { render :json => {:success => true, :html => (render_to_string partial: 'all_comments_js.html.erb')}
+       }
+       format.html { render :show }
+    end
   end
 
   # GET vacations/1/topics/new

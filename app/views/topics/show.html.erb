@@ -21,12 +21,12 @@
   <h2>Write a Comment</h2>
   <%= render 'comments/form' %>
 
-  <% if is_not_rooming? %>
+  <% if is_rooming %>
     <%= render 'close' %>
   <% end %>
 <% end %>
 
 
-<% if meal_form? && form_is_closed("Where/When") %>
+<% if is_meals? && form_is_closed("Where/When") %>
   <%= render ordered_resource(@vacation.meals) %>
 <% end %>

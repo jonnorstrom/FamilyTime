@@ -26,9 +26,9 @@ class CommentsController < ApplicationController
     @comment.update(user_id: params[:user_id])
 
     if @comment.save
-      redirect_to([current_vacation, current_topic], notice: 'Comment was successfully created.')
+      redirect_to(current_vacation)
     else
-      render action: 'new'
+      redirect_to(current_vacation, notice: "Comment wan't successfully made :(")
     end
   end
 
