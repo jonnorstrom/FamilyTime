@@ -5,7 +5,12 @@ class MealsController < ApplicationController
     @meal.update(user_id: params[:meal][:user_id])
 
     if @meal.save
-      redirect_to(@vacation, notice: 'Meal was successfully updated.')
+      if request.xhr?
+        render :json => {:html => (render_to_string partial: 'accounted_for.html.erb', :locals => {meal: @meal})}
+        # render_to_string(:partial => 'partial_file.html', :locals => {:variable => variable}, :format => :html)
+      else
+        redirect_to(@vacation)
+      end
     else
       render action: 'new'
     end

@@ -55,9 +55,29 @@ $(document).ready(function(){
   $(".right-side").on('click', ".topic-tab", function(e){
     e.preventDefault();
     var topicId = $(this).attr('id').replace(/topic/, "");
-    
+
     removeActive();
     $(this).addClass("active");
     getComments(topicId);
   }); // end of topic-tab handler
+
+  $(".meal-item").on('submit', function(e){
+    e.preventDefault();
+    var $thumbnail = $(this);
+    var $form = $thumbnail.find('form');
+    var url = $form.attr('action');
+    var data = $form.serialize();
+    var method = $form.attr('method')
+
+    var request = $.ajax({
+      url: url,
+      type: method,
+      data: data
+    })
+
+    request.done(function(response){
+      $form.remove();
+      $thumbnail.append(response['html']);
+    });
+  });
 });
