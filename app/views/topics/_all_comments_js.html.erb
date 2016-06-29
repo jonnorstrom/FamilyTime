@@ -1,22 +1,23 @@
 <% ordered_resource(@topic.comments).each do |comment| %>
-  <h4><%= User.find(comment.user_id).full_name %></h4>
+<div class="comment-container col-md-12">
+  <p><%= current_user.full_name %> |
+    <% if is_own_comment?(comment) %>
+      <%= link_to 'Edit', edit_vacation_topic_comment_path(current_vacation, current_topic, comment) %>
+      <%= link_to 'Delete', [current_vacation, current_topic, comment], :confirm => 'Are you sure?', :method => :delete %>
+    <% elsif has_superiority?(comment) %>
+      <%= link_to 'Delete', [current_vacation, current_topic, comment], :confirm => 'Are you sure?', :method => :delete %>
+    <% end %>
+    </p>
   <p><%= comment.content %></p>
-
-  <% if is_own_comment?(comment) %>
-    <%= link_to 'Edit', edit_vacation_topic_comment_path(current_vacation, current_topic, comment) %>
-    <%= link_to 'Delete', [current_vacation, current_topic, comment], :confirm => 'Are you sure?', :method => :delete %>
-  <% elsif has_superiority?(comment) %>
-    <%= link_to 'Delete', [current_vacation, current_topic, comment], :confirm => 'Are you sure?', :method => :delete %>
-  <% end %>
-  <%= link_to 'Back', vacation_path(current_vacation) %>
+</div>
 <% end %>
 
+<div class="new-comment-form">
 <% if @topic.is_open %>
   <h2>Write a Comment</h2>
   <%= form_for([current_vacation, current_topic, @comment]) do |f| %>
     <div class="field">
-      <%= f.label :content %><br />
-      <%= f.text_field :content %>
+      <%= f.text_field :content, placeholder: "Write your comment here" %>
     </div>
     <div class="actions">
       <%= hidden_field_tag 'user_id', current_user.id %>
@@ -24,8 +25,10 @@
     </div>
   <% end %>
 <% end %>
+</div>
 
-<% if is_not_rooming? %>
+<div class="close-form-button">
+<% if is_where_when? %>
   <% if current_user.is_admin %>
     <% if @topic.is_open %>
       <%= form_for([@topic.vacation, @topic], {:method => 'put'}) do |f| %>
@@ -37,3 +40,4 @@
     <% end %>
   <% end %>
 <% end %>
+</div>

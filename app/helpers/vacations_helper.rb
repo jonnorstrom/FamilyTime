@@ -3,11 +3,15 @@ module VacationsHelper
     !@vacation.topics.where(name: name)[0].is_open
   end
 
-  def meal_form?
-    Topic.find(params[:id]).name == 'Food/Meals'
+  def is_meals?
+    Topic.find(session[:topic_id]).name == 'Food/Meals'
   end
 
-  def is_not_rooming?
-    Topic.find(params[:id]).name != 'Rooming'
+  def is_rooming
+    Topic.find(session[:topic_id]).name == 'Rooming'
+  end
+
+  def is_where_when?
+    Topic.find(session[:topic_id]).name == 'Where/When'
   end
 end

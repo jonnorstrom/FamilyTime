@@ -13,6 +13,10 @@ class VacationsController < ApplicationController
   def show
     @attraction = Attraction.new
     @guest = Guest.new
+    data = {"topic_id" => session[:topic_id]}
+    if request.xhr?
+      render json: data
+    end
   end
 
   # GET /vacations/new

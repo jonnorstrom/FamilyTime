@@ -11,27 +11,53 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+function removeActive(){
+  $(".topic-tabs").find(".topic-tab").removeClass("active")
+}
 
+function getComments(topicId){
+  var vacationId = window.location.href.replace(/.*vacations./, "")
+  var url = "/vacations/"+ vacationId +"/topics/"+ topicId +""
+  var request = $.ajax({
+    url: url,
+    type: 'get',
+    dataType: 'json'
+  })
+
+  request.done(function(response){
+    $(".all-comments-container").empty();
+    $(".all-comments-container").append(response["html"]);
+  });
+  // take the prvious ajax request and put here
+}
+
+function getTopic(){
+  var vacationId = window.location.href.replace(/.*vacations./, "")
+  var request = $.ajax({
+    url: "/vacations/"+ vacationId +"",
+    type: 'get',
+    dataType: 'json'
+  });
+
+  request.done(function(response){
+    $("#topic"+response.topic_id).addClass("active")
+    getComments(response.topic_id)
+  });
+}
 
 $(document).ready(function(){
-  $(".main-container").on('click', ".topic-tab", function(e){
+  setTimeout(getTopic, 500);
+
+  $(".right-side").on('click', ".topic-tab", function(e){
     e.preventDefault();
     var topicId = $(this).attr('id').replace(/topic/, "");
-    var vacationId = window.location.href.replace(/.*vacations./, "")
-    var url = "/vacations/"+ vacationId +"/topics/"+ topicId +""
-    console.log(vacationId)
-    var request = $.ajax({
-      url: url,
-      type: 'get',
-      dataType: 'json'
-    })
 
-    request.done(function(response){
-      $(".comments-container").empty();
-      $(".comments-container").append(response["html"]);
-    });
+    removeActive();
+    $(this).addClass("active");
+    getComments(topicId);
   }); // end of topic-tab handler
 });
