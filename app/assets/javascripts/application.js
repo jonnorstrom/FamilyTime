@@ -15,6 +15,46 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+function submitEditedComment(clicked){
+  console.log("in submit")
+  var $edit = clicked;
+  var $commentContainer = $edit.closest('.comment-container');
+  var url = $commentContainer.find('form').attr('action')
+  var data = $commentContainer.find('form').serialize()
+  var request = $.ajax({
+    url: url,
+    type: 'PUT',
+    dataType: 'json',
+    data: data
+  })
+
+  request.done(function(response){
+    $commentContainer.empty();
+    $commentContainer.append(response['html']);
+  })
+}
+
+function editCommentForm(clicked){
+  var $edit = clicked;
+  var $commentContainer = $edit.closest('.comment-container');
+  var content = $commentContainer.find('.p-content').text();
+  var commentId = $commentContainer.find('.p-content').attr('id').replace(/comment/, "");
+  var topicId = $(".topic-tabs").find('.active').attr('id').replace(/topic/, "");
+  var vacationId = $('ul.topic-tabs').attr('id').replace(/vacation/, "");
+  var url = "/vacations/"+vacationId+"/topics/"+topicId+"/comments/"+commentId+"/edit";
+  var request = $.ajax({
+    url: url,
+    type: 'get',
+    dataType: 'json'
+  })
+
+  request.done(function(response){
+    $commentContainer.empty();
+    $commentContainer.append(response['html']);
+  })
+}
+
+
 function removeActive(){
   $(".topic-tabs").find(".topic-tab").removeClass("active")
 }
@@ -115,5 +155,15 @@ $(document).ready(function(){
   $('.guest-attraction-form').on('submit', function(e){
     e.preventDefault();
     addGuestAttraction($(this));
+  })
+
+  $('.all-comments-container').on('click', '.edit-comment', function(e){
+    e.preventDefault();
+    editCommentForm($(this));
+  })
+
+  $('.all-comments-container').on('submit', '.edit-comment-form', function(e){
+    e.preventDefault()
+    submitEditedComment($(this));
   })
 });

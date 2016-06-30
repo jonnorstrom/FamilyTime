@@ -205,7 +205,7 @@ display: block;
   border-right: 1px rgb(85, 172, 252) solid;
   border-bottom: 1px rgb(85, 172, 252) solid;
   padding: 10px;
-  /*height: 600px;*/
+  max-height: 600px;
   overflow: auto;
 }
 
@@ -238,7 +238,7 @@ display: block;
   margin-top: auto;
 }
 
-.guest-input {
+.guest-input, .comment-input {
   height: 30px;
 }
 

@@ -18,6 +18,11 @@ class CommentsController < ApplicationController
 
   # GET topics/1/comments/1/edit
   def edit
+    if request.xhr?
+      render :json => {:html => (render_to_string partial: 'topics/edit_comment_form', :locals => {comment: @comment})}
+    else
+      redirect_to([@vacation, @topic], notice: 'Comment was successfully updated.')
+    end
   end
 
   # POST topics/1/comments
@@ -34,8 +39,13 @@ class CommentsController < ApplicationController
 
   # PUT topics/1/comments/1
   def update
+    p params
     if @comment.update_attributes(comment_params)
-      redirect_to([@vacation, @topic], notice: 'Comment was successfully updated.')
+      if request.xhr?
+        render :json => {:html => (render_to_string partial: 'topics/single_comment_js', :locals => {comment: @comment})}
+      else
+        redirect_to(current_vacation)
+      end
     else
       render action: 'edit'
     end
