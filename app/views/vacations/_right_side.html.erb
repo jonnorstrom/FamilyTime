@@ -1,6 +1,6 @@
-<ul class="topic-tabs nav nav-tabs nav-justified">
+<ul id="vacation<%=@vacation.id%>" class="topic-tabs nav nav-tabs nav-justified">
   <% ordered_resource(@vacation.topics).each do |topic| %>
-    <li><%= link_to topic.name, vacation_topic_path(@vacation, topic) %></li>
+    <li id="topic<%=topic.id%>" class="topic-tab"><%= link_to topic.name, vacation_topic_path(@vacation, topic) %></li>
   <% end %>
 </ul>
 <div class="all-comments-container"></div>

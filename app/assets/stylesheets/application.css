@@ -28,6 +28,11 @@
    color: rgb(85, 172, 252);
  }
 
+ #vacation-show-title {
+   margin-top: 0px;
+   padding-top: 0px;
+ }
+
  .dropdown:hover .dropdown-menu {
 display: block;
 }
@@ -95,8 +100,12 @@ display: block;
   border-bottom: 2px rgb(85, 172, 252) solid;
 }
 
+.tabs {
+  /*padding-top: 15px;*/
+}
+
 .topic-tabs {
-  padding-top: 15px;
+  margin-top: 14px;
 }
 
 .topic-tabs.nav-tabs > li > a {
@@ -196,11 +205,13 @@ display: block;
   border-right: 1px rgb(85, 172, 252) solid;
   border-bottom: 1px rgb(85, 172, 252) solid;
   padding: 10px;
-  height: 500px;
+  max-height: 600px;
   overflow: auto;
 }
 
-.vacation-show-container, .operations-container, .guest-attractions-container {
+.vacation-show-container, .operations-container,
+.guest-attractions-container, .comment-container,
+.guest-attraction-button {
   padding-left: 0;
   padding-right: 0;
 }
@@ -208,23 +219,47 @@ display: block;
 .guest-attractions-container {
   display: flex;
   margin-top: 14px;
+  margin-bottom: 20px;
 }
 
 .attractions-container, .guests-container {
   display: flex;
   flex: 1;
   flex-direction: column;
+  /*justify-content: space-around;*/
   background: rgba(105, 192, 255, .5);
   border: 1px rgba(85, 172, 252, .8) solid;
-  padding-bottom: 130px;
+  padding-bottom: 5px;
+  /*padding-bottom: 130px;*/
 }
 
 .guest-attraction-form {
-  position: absolute;
-  bottom: 0;
-  margin-left: auto;
+  align-self: center;
+  margin-top: auto;
 }
 
-.guest-input {
+.guest-input, .comment-input {
   height: 30px;
+}
+
+.comment-container {
+  background: rgba(105, 192, 255, .5);
+  border: 1px rgba(85, 172, 252, .8) solid;
+}
+
+.comment-container {
+  padding: 5px 3px 6px 12px;
+  margin-bottom: 5px;
+  border-radius: 6px;
+}
+
+.guest-attraction-button {
+  align-self: center;
+  margin-top: auto;
+  border: 2px rgba(85, 172, 252, .8) solid;
+}
+
+.guest-attraction-button:hover {
+  background: rgb(85, 172, 252);
+  color: white;
 }

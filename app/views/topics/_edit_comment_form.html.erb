@@ -1,0 +1,8 @@
+<p><%= current_user.full_name %></p>
+<%= form_for([current_vacation, current_topic, comment], :html => {class: "form-inline edit-comment-form", id: "comment#{comment.id}"}) do |f| %>
+    <div class="input-group col-md-8">
+      <%= f.text_field :content, placeholder: "Write your comment here ('enter' to submit)", class: "comment-input form-control input-sm", value: comment.content %>
+    </div>
+    <%= hidden_field_tag 'user_id', current_user.id %>
+    <%= f.submit class: 'hidden btn btn-default'%>
+<% end %>
