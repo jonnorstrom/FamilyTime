@@ -1,4 +1,4 @@
-<div class="vacation-item col-md-3">
+<div class="vacation-item col-md-3" id="vacation<%=vacation.id%>">
   <h4 class="text-center" ><%= link_to vacation.name, vacation %></h4>
   <ul>
     <% if vacation.has_start_and_end? %>
