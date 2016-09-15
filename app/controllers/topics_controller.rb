@@ -41,8 +41,13 @@ class TopicsController < ApplicationController
 
   # PUT vacations/1/topics/1
   def update
+    p "here!"
     if @topic.update_attributes(topic_params)
-      redirect_to([@topic.vacation, @topic], notice: 'Topic was successfully updated.')
+      if request.xhr?
+        render json: {updated: true}
+      else
+        redirect_to([@topic.vacation, @topic], notice: 'Topic was successfully updated.')
+      end
     else
       render action: 'edit'
     end

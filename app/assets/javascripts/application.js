@@ -16,7 +16,6 @@
 //= require turbolinks
 //= require_tree .
 function submitEditedComment(clicked){
-  console.log("in submit")
   var $edit = clicked;
   var $commentContainer = $edit.closest('.comment-container');
   var url = $commentContainer.find('form').attr('action')
@@ -130,8 +129,29 @@ function getTopic(){
   });
 }
 
+function closeForm($form) {
+  var $container = $form.parent().parent()
+  var data = $form.serialize();
+  var url = $form.attr('action');
+
+  var request = $.ajax({
+    url: url,
+    type: 'put',
+    data: data
+  })
+
+  request.done(function(response) {
+    // updated: true
+    if (response.updated === true) {
+      $form.parent().prev().remove()
+      $form.remove();
+      $container.append('<p class="form-close-notice">This forum has been successfully closed!</p>')
+    }
+  })
+}
+
 $(document).ready(function(){
-  setTimeout(getTopic, 500);
+  setTimeout(getTopic, 200);
 
   $(".right-side").on('click', ".topic-tab", function(e){
     e.preventDefault();
@@ -165,6 +185,11 @@ $(document).ready(function(){
   $('.all-comments-container').on('submit', '.edit-comment-form', function(e){
     e.preventDefault()
     submitEditedComment($(this));
+  })
+
+  $('.all-comments-container').on('submit', '.edit_topic', function(e){
+    e.preventDefault();
+    closeForm($(this));
   })
 
   // $('.all-vacations-container').on('click', '.vacation-item', function(){

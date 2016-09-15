@@ -7,7 +7,7 @@ module VacationsHelper
     Topic.find(session[:topic_id]).name == 'Food/Meals'
   end
 
-  def is_rooming
+  def is_rooming?
     Topic.find(session[:topic_id]).name == 'Rooming'
   end
 

@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<% if !@topic.is_open %>
+<% unless @topic.is_open %>
   <h1> This topic is closed </h1>
 <% end %>
 
@@ -21,7 +21,7 @@
   <h2>Write a Comment</h2>
   <%= render 'comments/form' %>
 
-  <% if is_rooming %>
+  <% if is_rooming? %>
     <%= render 'close' %>
   <% end %>
 <% end %>
