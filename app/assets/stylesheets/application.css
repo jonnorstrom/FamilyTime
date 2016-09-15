@@ -263,3 +263,7 @@ display: block;
   background: rgb(85, 172, 252);
   color: white;
 }
+
+.form-close-notice {
+  color: green;
+}
