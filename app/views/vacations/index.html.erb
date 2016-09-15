@@ -1,13 +1,13 @@
 <h3 class="text-center">Vacations/Events</h3>
 
 <div id="sidebar-wrapper">
-  <ul class="sidebar-nav">
-    <div class="start-new col-sm-1">
-      <%= link_to 'Start a New Vacation', new_vacation_path %>
+  <ul class="col-md-2">
+    <div class="start-new">
+      <p><%= link_to 'Start a New Vacation', new_vacation_path %></p>
     </div>
   </ul>
 </div>
-<div class="all-vacations-container col-md-offset-3">
+<div class="all-vacations-container col-md-offset-2">
   <% ordered_resource(@vacations).each do |vacation| %>
     <div class="single-vacation">
       <%= render partial: 'vacation_item', locals: {vacation: vacation} %>

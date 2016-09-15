@@ -73,11 +73,17 @@ display: block;
   height: 200px;
   border: 2px rgb(85, 172, 252) solid;
   margin: 10px;
+  -webkit-transition: background-color, border .3s;
+  transition: background-color, border .3s;
+}
+
+.vacation-item a {
+  -webkit-transition: color .3s;
+  transition: color .3s;
 }
 
 .vacation-item:hover {
   background-color: rgb(85, 172, 252);
-  border: 2px white solid;
 }
 
 .vacation-item:hover a{
@@ -90,10 +96,17 @@ display: block;
 }
 
 .start-new {
-  position: fixed;
-  left: 15%;
+  text-align: center;
+  padding-top: 10px;
   border-radius: 50px;
   border: 2px rgb(85, 172, 252) solid;
+  max-width: 162px;
+}
+
+.start-new a:hover {
+  text-decoration: none;
+  background: none;
+  color: #666;
 }
 
 .navbar {
@@ -222,6 +235,12 @@ display: block;
   margin-bottom: 20px;
 }
 
+.guest-attractions-container a:hover {
+  text-decoration: underline;
+  background: none;
+  color: black;
+}
+
 .attractions-container, .guests-container {
   display: flex;
   flex: 1;
@@ -251,6 +270,12 @@ display: block;
   padding: 5px 3px 6px 12px;
   margin-bottom: 5px;
   border-radius: 6px;
+}
+
+.comment-container a:hover {
+  text-decoration: underline;
+  background: none;
+  color: black;
 }
 
 .guest-attraction-button {

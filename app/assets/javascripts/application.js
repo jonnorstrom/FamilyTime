@@ -191,12 +191,4 @@ $(document).ready(function(){
     e.preventDefault();
     closeForm($(this));
   })
-
-  // $('.all-vacations-container').on('click', '.vacation-item', function(){
-  //   var vacationId = $(this).attr('id').replace(/vacation/, "");
-  //   $.ajax({
-  //     url: "/vacations/"+vacationId+"/show",
-  //     type: "post"
-  //   });
-  // })
 });
