@@ -41,6 +41,7 @@ function editCommentForm(clicked){
   var topicId = $(".topic-tabs").find('.active').attr('id').replace(/topic/, "");
   var vacationId = $('ul.topic-tabs').attr('id').replace(/vacation/, "");
   var url = "/vacations/"+vacationId+"/topics/"+topicId+"/comments/"+commentId+"/edit";
+
   var request = $.ajax({
     url: url,
     type: 'get',
