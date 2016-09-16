@@ -1,8 +1,9 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
+  include ApplicationHelper
   setup do
-    @user = User.create(first_name: "Jon", last_name: "Norstrom", email: "email@email.com", password: "password", is_admin: true)
+    @user = User.create(first_name: "Jon", last_name: "Norstrom", email: "email@email.com", password: "default", is_admin: true)
   end
 
   test "password is hashed by BCrypt" do
@@ -14,11 +15,16 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "password authentication works" do
-    assert(@user.authenticate("password"))
+    assert(@user.authenticate("default"))
   end
 
   test "password authentication fails with wrong password" do
     assert_not(@user.authenticate("not password"))
+  end
+
+  test "#need_to_reset_password returns true if password is 'password'" do
+    @user.update(password: 'password')
+    assert(need_to_reset_password(@user))
   end
 
   test "password can be changed" do
