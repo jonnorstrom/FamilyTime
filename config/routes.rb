@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   resources :vacations do
     resources :guests
     resources :attractions
-    resources :photos
     resources :meals
     resources :topics do
       resources :comments

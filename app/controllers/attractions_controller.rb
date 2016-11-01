@@ -1,23 +1,5 @@
 class AttractionsController < ApplicationController
-  before_action :set_attraction, only: [:show, :edit, :update, :destroy]
-
-  # GET vacations/1/attractions
-  def index
-    @attractions = @vacation.attractions
-  end
-
-  # GET vacations/1/attractions/1
-  def show
-  end
-
-  # GET vacations/1/attractions/new
-  def new
-    @attraction = @vacation.attractions.build
-  end
-
-  # GET vacations/1/attractions/1/edit
-  def edit
-  end
+  before_action :set_attraction, only: [:update]
 
   # POST vacations/1/attractions
   def create
@@ -33,24 +15,6 @@ class AttractionsController < ApplicationController
     else
       render action: 'new'
     end
-  end
-
-  # PUT vacations/1/attractions/1
-  def update
-    if !@attraction
-      redirect_to vacation_attractions_path
-    elsif @attraction.update_attributes(attraction_params)
-      redirect_to(vacation_attractions_path, notice: 'Attraction was successfully updated.')
-    else
-      render action: 'edit'
-    end
-  end
-
-  # DELETE vacations/1/attractions/1
-  def destroy
-    @attraction.destroy
-
-    redirect_to vacation_attractions_url(@vacation)
   end
 
   private

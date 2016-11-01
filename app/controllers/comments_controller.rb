@@ -1,20 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_topic
-  before_action :set_comment, only: [:show, :edit, :update, :destroy]
-
-  # GET topics/1/comments
-  def index
-    @comments = @topic.comments
-  end
-
-  # GET topics/1/comments/1
-  def show
-  end
-
-  # GET topics/1/comments/new
-  def new
-    @comment = @topic.comments.build
-  end
+  before_action :set_comment, only: [:edit, :update, :destroy]
 
   # GET topics/1/comments/1/edit
   def edit
@@ -39,7 +25,6 @@ class CommentsController < ApplicationController
 
   # PUT topics/1/comments/1
   def update
-    p params
     if @comment.update_attributes(comment_params)
       if request.xhr?
         render :json => {:html => (render_to_string partial: 'topics/single_comment_js', :locals => {comment: @comment})}
