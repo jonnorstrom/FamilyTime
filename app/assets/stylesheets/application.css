@@ -100,7 +100,7 @@ display: block;
   padding-top: 10px;
   border-radius: 50px;
   border: 2px rgb(85, 172, 252) solid;
-  max-width: 162px;
+  /*max-width: 180px;*/
 }
 
 .start-new a:hover {

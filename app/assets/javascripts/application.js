@@ -103,6 +103,7 @@ function addGuestAttraction(clicked){
 function getComments(topicId){
   var vacationId = window.location.href.replace(/.*vacations./, "")
   var url = "/vacations/"+ vacationId +"/topics/"+ topicId +""
+  console.log(url);
   var request = $.ajax({
     url: url,
     type: 'get',
