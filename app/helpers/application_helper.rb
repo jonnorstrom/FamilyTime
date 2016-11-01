@@ -22,10 +22,12 @@ module ApplicationHelper
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:current_user_id] = user.id
-      @notice = "Logged in Successfully"
+      return false if need_to_reset_password(user)
+      return @notice = "Logged in Successfully"
     else
-      @notice = "Wrong Email or Password"
+      return @notice = "Wrong Email or Password"
     end
+    return false
   end
 
   def ordered_resource(resource)
@@ -35,4 +37,9 @@ module ApplicationHelper
   def url_with_protocol(url)
     /^http/i.match(url) ? url : "http://#{url}"
   end
+
+  def need_to_reset_password(user)
+    user.authenticate('password') ? true : false
+  end
+
 end
