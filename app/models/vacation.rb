@@ -1,5 +1,4 @@
 class Vacation < ActiveRecord::Base
-  has_many :photos
   has_many :meals, dependent: :destroy
   has_many :guests, dependent: :destroy
   has_many :topics, dependent: :destroy
@@ -27,7 +26,7 @@ class Vacation < ActiveRecord::Base
   def has_start_and_end?
     start && self.end
   end
-  
+
   private
 
 
