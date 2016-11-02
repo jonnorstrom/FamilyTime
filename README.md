@@ -7,7 +7,7 @@ A application for families to plan events
 4. bundle exec rake db:migrate
 5. bundle exec rake db:seed
 
-Visit [localhost:3000](https://127.0.0.1:3000)
+Visit [localhost:3000](https://localhost:3000)
 
 Users are
 Jane Doe
