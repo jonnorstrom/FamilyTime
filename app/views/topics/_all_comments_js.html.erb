@@ -1,6 +1,6 @@
 <% ordered_resource(@topic.comments).each do |comment| %>
 <div class="comment-container col-md-12">
-  <p><%= current_user.full_name %> |
+  <p><%= comment.user.full_name %> |
     <% if is_own_comment?(comment) %>
       <%= link_to 'Edit', edit_vacation_topic_comment_path(current_vacation, current_topic, comment), class: 'edit-comment' %>
       <%= link_to 'Delete', [current_vacation, current_topic, comment], :confirm => 'Are you sure?', :method => :delete %>
